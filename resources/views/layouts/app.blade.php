@@ -15,6 +15,12 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+
+        <style>
+            .dropdown-item{
+                min-width:400px;
+            }
+        </style>    
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -32,5 +38,8 @@
                 {{ $slot }}
             </main>
         </div>
+
+        @section ('scripts')
+        @show
     </body>
 </html>

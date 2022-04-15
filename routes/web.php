@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CrudController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +19,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
-
-
 Route::middleware(['auth', 'throttle:60,1'])->group(function () {
 
     Route::get('/dashboard', [CrudController::class, 'index'])->name('dashboard');
+    Route::get('/create', [CrudController::class, 'create'])->name('crud.create');
+    Route::post('/store', [CrudController::class, 'store'])->name('crud.store');
+    Route::get('/createRule', [CrudController::class, 'createRule'])->name('crud.createRule');
+
+    Route::get('/itemsearch', [CrudController::class, 'itemsearch'])->name('crud.itemsearch');
+
+    Route::get('/rules', [CrudController::class, 'rules'])->name('crud.rules');
+
+    Route::post('/storerule', [CrudController::class, 'storerule'])->name('crud.storerule');
+
+
+    Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
+
 
 });
 

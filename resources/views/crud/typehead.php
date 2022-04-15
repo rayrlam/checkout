@@ -1,0 +1,95 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Create Rule') }}
+        </h2>
+    </x-slot>
+    <x-admin-success /> 
+    <x-admin-errors />
+    <div class="w-full">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+        <div class="shadow overflow-hidden sm:rounded-md bg-white">
+            <div class="p-4">
+                <p class="block text-gray-700 mt-2 mb-2">
+                    Search Item
+                </p>   
+
+                <input id="Auto1" type="text" class="form-control typeahead" placehoder="Search..." />
+ 
+                <p class="py-1 text-xl">
+                    <p id="showid1"></p>
+                    <p id="namehistory1"></p>
+                </p>
+
+                <x-jet-section-border />
+                
+            </div>
+
+            <div class="flex items-center justify-start px-4 py-3 bg-gray-100 text-right sm:px-6">
+                <form method="post" action="{{ route('crud.store') }}">
+                    @csrf
+                    <input name="id1" type="hidden" id="id1">
+                    <input name="id2" type="hidden" id="id2">
+                    <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">              
+                        Create Rule
+                    </button>
+                </form>
+            </div>        
+        </div>
+    </div>    
+
+ 
+    @section('scripts')
+        @parent
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" integrity="sha512-HWlJyU4ut5HkEj0QsK/IxBCY55n5ZpskyjVlAoV9Z7XQwwkqXoYdCIC93/htL3Gu5H3R4an/S0h2NXfbZk3g7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script>
+            var path = '{{ route('member.search') }}';
+
+            $('#Auto1').typeahead({
+                source:function(terms,process){
+                    return $.get(path, {terms:terms}, function(data){
+                        return process(data);
+                    });
+                },
+
+                //this triggers after a value has been selected on the control
+                afterSelect: function (data) {
+                    //print the id to developer tool's console
+                    // console.log(data.id);
+
+                    $('#namehistory1').html(data.namehistory);
+                    $('#id1').val(data.id);
+                    $('#showid1').html(data.id);
+                },
+
+            });
+
+            $('#Auto2').typeahead({
+                source:function(terms,process){
+                    return $.get(path, {terms:terms}, function(data){
+                        return process(data);
+                    });
+                },
+                //this triggers after a value has been selected on the control
+                afterSelect: function (data) {
+                    //print the id to developer tool's console
+                    // console.log(data.id);
+
+                    $('#namehistory2').html(data.namehistory);
+                    $('#id2').val(data.id);
+                    $('#showid2').html(data.id);
+                }
+            });
+            
+        </script>
+
+    @endsection
+
+</x-app-layout>
+ 

@@ -15,6 +15,14 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('crud.create')" :active="request()->routeIs('crud.create')">
+                        {{ __('Create Item') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('crud.createRule')" :active="request()->routeIs('crud.createRule')">
+                        {{ __('Create Rule') }}
+                    </x-nav-link>
                 </div>
             </div>
 

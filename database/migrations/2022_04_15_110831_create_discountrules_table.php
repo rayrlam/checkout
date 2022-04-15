@@ -16,9 +16,10 @@ class CreateDiscountrulesTable extends Migration
         Schema::create('discountrules', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('item_id')->default(0);
+            $table->boolean('method')->default(0);
+            $table->unsignedBigInteger('qtyorid');
             $table->decimal('sprice', 8, 2);
-            $table->unsignedSmallInteger('ifqty')->default(0);
-            $table->unsignedBigInteger('ifid')->default(0);
+            $table->decimal('eprice', 14, 6);
             $table->boolean('is_consistent')->default(1);
             $table->timestamp('expirydate')->nullable();
             $table->timestamps();
