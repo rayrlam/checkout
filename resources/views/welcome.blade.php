@@ -92,7 +92,7 @@
 
         <div class="mt-4">
             <p>    
-                ____________________________________________________________
+            ________________________________________________________________________________________________________________________
             </p>
             <ol>
                 <li>
@@ -106,6 +106,33 @@
                 </li>
             </ol>
             
-        </div>    
+        </div>
+
+        <div class="mt-4">
+            <p>
+            
+            ________________________________________________________________________________________________________________________
+          
+            </p>
+        </div>
+        
+        <div class="ml-4 text-xl mt-4 font-semibold text-gray-900 dark:text-white">
+            <h2 class="text-xl">Setup Information</h2>
+        </div>
+
+        <div class="ml-4 text-xl mt-4 font-semibold text-gray-900 dark:text-white">
+            <ul>
+                <li>Laravel Installation - <a href="https://laravel.com/docs/9.x/installation" target="_blank">https://laravel.com/docs/9.x/installation</a></li>
+                <li>Create Database supermarket</li>
+                <li>Edit .env at DB_DATABASE, DB_USERNAME & DB_PASSWORD</li>
+                <li>Run Laravel Command
+                    <ul>
+                        <li>php artisan migrate</li>
+                        <li>php artisan db:seed --class=DataSeeder</li>
+                        <li>php artisan test</li>
+                    </ul>
+                </li>
+            </ul>  
+        </div>
     </div>
 </x-supermarket-layout>    

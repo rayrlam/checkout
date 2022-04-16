@@ -8,12 +8,6 @@ use App\Models\Rule;
 
 class CheckoutController extends Controller
 {   
-    // If you buy 5 ‘C’s you would get 2 for 38 + 3 for 50. 
-    // If you buy 4 ‘C’s you would get 3 for 50 + 1 for 20 rather than 2 for 38 + 2 for 38.
-
-    // For every ‘D’ purchased, if there is also an ‘A’ purchased, it will cost 5 instead of 15.
-    // For example, if you buy 10 ‘D’s and 6 ‘A’s, 6 of the ‘D’s will cost 5 each whilst the other 4 will cost 15 each.
-
 
     private $checkout_tests = [
         [
@@ -30,15 +24,23 @@ class CheckoutController extends Controller
     
     public function checkout()
     {
+        $sum = [];
+        $sum[] = $this->cal($this->checkout_tests['0']);
+        $sum[] = $this->cal($this->checkout_tests['1']);
+        $sum[] = $this->cal($this->checkout_tests['2']);
        
+        return view('checkout', compact(['sum']));
+
+    }
+
+    private function cal($test){
         $sum = 0;
         $match = [];
-        $tests = $this->checkout_tests['2'];  
-        foreach($tests as $test){
-            $item = Item::find($test['item_id']);
-            $qty = $test['qty'];
+        foreach($test as $t){
+            $item = Item::find($t['item_id']);
+            $qty = $t['qty'];
             $unitprice = $item->unitprice;
-            $rules = Rule::where('item_id',$test['item_id'])->orderBy('eprice')->get();
+            $rules = Rule::where('item_id',$t['item_id'])->orderBy('eprice')->get();
             $qp = [];
             
             $type = 0;
@@ -69,26 +71,20 @@ class CheckoutController extends Controller
         }
 
         if(count($match)>0){
-            foreach($tests as $test){
-                $m = $test['item_id'];
+            foreach($test as $t){
+                $m = $t['item_id'];
                 if(isset($match[$m])){
-                    if( $match[$m]['qty'] > $test['qty']){
-                        $sum += ($match[$m]['qty'] - $test['qty'])*$match[$m]['op'] +
-                            ($test['qty'] * $match[$m]['sp']);
-                    }elseif($match[$m]['qty'] ==  $test['qty']){
-                        $sum += $test['qty'] * $match[$m]['sp'];
+                    if( $match[$m]['qty'] > $t['qty']){
+                        $sum += ($match[$m]['qty'] - $t['qty'])*$match[$m]['op'] +
+                            ($t['qty'] * $match[$m]['sp']);
+                    }elseif($match[$m]['qty'] ==  $t['qty']){
+                        $sum += $t['qty'] * $match[$m]['sp'];
                     }else{
                         $sum += $match[$m]['qty'] * $match[$m]['sp'];
                     }
                 }
             }
         }
-
-   
-        
-
-        return view('checkout', compact(['sum']));
-
+        return $sum;
     }
- 
 }

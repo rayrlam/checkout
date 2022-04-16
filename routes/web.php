@@ -19,6 +19,10 @@ Route::get('/', function(){
     return view('welcome');
 });
 
+
+Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
+
+
 Route::middleware(['auth', 'throttle:60,1'])->group(function () {
 
     Route::get('/dashboard', [CrudController::class, 'index'])->name('dashboard');
