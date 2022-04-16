@@ -124,13 +124,44 @@
             <ul>
                 <li>Laravel Installation - <a href="https://laravel.com/docs/9.x/installation" target="_blank">https://laravel.com/docs/9.x/installation</a></li>
                 <li>Create Database supermarket</li>
-                <li>Edit .env at DB_DATABASE, DB_USERNAME & DB_PASSWORD</li>
+                <li>Edit .env at DB_DATABASE, DB_USERNAME & DB_PASSWORD for database connection</li>
                 <li>Run Laravel Command
                     <ul>
-                        <li>php artisan migrate</li>
-                        <li>php artisan db:seed --class=DataSeeder</li>
-                        <li>php artisan test</li>
+                        <li>
+                            php artisan migrate
+                            <ul>
+                                <li>Create all tables for this app</li>
+                            </ul>
+                        </li>
+                        <li class="mt-4">
+                            php artisan db:seed --class=DataSeeder
+                            <ul>
+                                <li>Create the dumpy data for this app</li>
+                            </ul>    
+                        </li>
+                        <li class="mt-4">
+                            php artisan test
+                            <ul>
+                                <li>Run the CheckoutTest to check for errors</li>
+                            </ul>
+                        </li>
                     </ul>
+                </li>
+                <li>
+                    Register an account or use the below information to entry the backend 
+                    <ul>
+                        <li>
+                            Email: rayrlam@yaho.com.hk
+                            <br/>
+                            Password: 12345678   
+                        </li>
+                        <li>
+                            Create new item at Create Item page
+                        </li>
+                        <li>
+                            Create new rule at Create Rule page
+                        </li>
+                    </ul> 
                 </li>
             </ul>  
         </div>
