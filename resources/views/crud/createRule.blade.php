@@ -4,75 +4,77 @@
             {{ __('Create Rule') }}
         </h2>
     </x-slot>
- 
- 
-    <div class="w-full">
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <div class="py-12">
+  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">    
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-        <div class="shadow overflow-hidden sm:rounded-md bg-white">
-            <div class="p-4">
-            
-                <p class="py-1 text-xl">
-                    <!-- <p id="showid1"></p> -->
-                    <p id="itemname"></p>
-                </p>
+       
+                    <form method="post" action="{{route('crud.storerule')}}">
+                        @csrf
 
-                <p class="block text-gray-700 mt-2 mb-2">
-                    Search Item
-                </p>   
+                        <input name="itemid" id="id1" type="hidden" value="" />
 
 
-                <input id="Auto1" type="text" class="form-control typeahead" placehoder="Search..." />
- 
-    
-            </div>
 
-            <div class="bg-white">
-                <form method="post" action="{{ route('crud.store') }}">
-                    @csrf
-                    <input name="id1" type="hidden" id="id1">
-          
-               
-                    <div class="p-4 text-gray-700 mt-2 mb-2">
-                        Method: 
-                    
-                        <div class="form-check form-check-inline" style="margin-left:1rem">
-                            <input class="form-check-input" type="radio" name="method" id="flexRadioDefault1" value="0" checked="true">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                By Qty
-                            </label>
+                        @if($message = Session::get('success'))
+
+                        <div class="mt-4 mb-4">
+                            <p class="font-bold">{{ $message }}</p>
                         </div>
-                        <div class="form-check form-check-inline" style="margin-left:1rem">
-                            <input class="form-check-input" type="radio" name="method" id="flexRadioDefault2" value="1">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                By Item
-                            </label>
-                        </div>
-                   
-                        <input class="form-input rounded-md shadow-sm mt-1 block w-full  mt-4" name="qtyorid" placeholder="Qty" type="text">
+                        @endif
+
+                        <div class="bg-white">
+                            <div class="p-6 md:p-10">
+
+                                <p class="py-1 text-xl">
+                                    <!-- <p id="showid1"></p> -->
+                                    <p id="itemname"></p>
+                                </p>
+
+                                <p class="block text-gray-700 mt-2 mb-2">
+                                    Search Item
+                                </p>
+                                
+                                <input id="Auto1" type="text" class="form-control typeahead" placehoder="Search..." />
+
+                                                            
+                                <label class="block text-gray-700 mt-4" for="name">
+                                    Method
+                                </label>
+                                
+                                <div class="form-check form-check-inline" style="margin-left:1rem">
+                                    <input class="form-check-input" type="radio" name="method" id="flexRadioDefault1" value="0" checked="true">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        By Qty
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline" style="margin-left:1rem">
+                                    <input class="form-check-input" type="radio" name="method" id="flexRadioDefault2" value="1">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        By Item
+                                    </label>
+                                </div>
+                           
+                                <input class="form-input rounded-md shadow-sm mt-1 block w-full  mt-4" name="qtyorid" placeholder="Qty" type="text">
                         
-                        <input class="form-input rounded-md shadow-sm mt-1 block w-full  mt-4" name="price" placeholder="Price" type="text">
+                                <input class="form-input rounded-md shadow-sm mt-1 block w-full  mt-4" name="price" placeholder="Price" type="text">
 
-                 
+                            </div>
 
-
-                    </div>
-
-          
-
-                    <div class="flex items-center justify-start px-4 py-3 bg-gray-100 text-right sm:px-6">
-
-                        <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">              
-                            Create Rule
-                        </button>
-                    </div>
-           
-                </form>
-            </div>        
+                            <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
+                                <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                                    Create
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>    
-
+    </div>
  
     @section('scripts')
         @parent

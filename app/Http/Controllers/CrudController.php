@@ -8,17 +8,14 @@ use App\Models\Rule;
 use Illuminate\Http\Request;
 
 class CrudController extends Controller
-{
+{   
 
-    public $options = ['qty'=>'With Qty','active'=>'with Item'];
-
-
-    public function rules()
-    {   
- 
-        return view('crud.rules');
-    }
-
+     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function storerule(Request $request)
     {   
  
@@ -40,22 +37,15 @@ class CrudController extends Controller
         $rule->qtyorid = $qtyorid;
         $rule->sprice = $price;
 
-        if($method == 0){
-            $rule->eprice = round($price/$qtyorid,6);
-        }else{
-            $rule->eprice = $price;
-        }
-        
+        $rule->eprice = $method == 0 ? round($price/$qtyorid,6) : $price;
 
         if(!$rule->save()){
             abort(500);
         }
 
-        $success = 'New Item Was Created!';
+        $success = 'New Rule Was Created!';
         return back()->with(compact(['success']));  
     }
-
-
 
     /**
      * Display a listing of the resource.
@@ -67,11 +57,7 @@ class CrudController extends Controller
         return view('dashboard');
     }
 
-    /**
-     * Show the form for creating a Discount Rule.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // For typeahead search
     public function itemsearch(Request $request)
     {
          
@@ -79,23 +65,18 @@ class CrudController extends Controller
         $data = Item::select(['id','name','unitprice'])
                     ->where('name', 'like', "%{$search}%")->get();
         
-        // dd($data);
         return response()->json($data);
 
     }
 
-    
-
-
     /**
-     * Show the form for creating a Discount Rule.
+     * Show the form for creating a Rule.
      *
      * @return \Illuminate\Http\Response
      */
     public function createRule()
     {   
-        $options = $this->options;
-        return view('crud.createRule', compact(['options']));
+        return view('crud.createRule');
     }
 
 

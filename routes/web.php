@@ -15,9 +15,7 @@ use App\Http\Controllers\CheckoutController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [CheckoutController::class, 'checkout'])->name('checkout');
 
 Route::middleware(['auth', 'throttle:60,1'])->group(function () {
 
@@ -28,13 +26,7 @@ Route::middleware(['auth', 'throttle:60,1'])->group(function () {
 
     Route::get('/itemsearch', [CrudController::class, 'itemsearch'])->name('crud.itemsearch');
 
-    Route::get('/rules', [CrudController::class, 'rules'])->name('crud.rules');
-
     Route::post('/storerule', [CrudController::class, 'storerule'])->name('crud.storerule');
-
-
-    Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
-
 
 });
 
