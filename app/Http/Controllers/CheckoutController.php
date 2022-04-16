@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
-use App\Models\Discountrule;
+use App\Models\Rule;
 
 class CheckoutController extends Controller
 {   
@@ -38,7 +38,7 @@ class CheckoutController extends Controller
             $item = Item::find($test['item_id']);
             $qty = $test['qty'];
             $unitprice = $item->unitprice;
-            $rules = Discountrule::where('item_id',$test['item_id'])->orderBy('eprice')->get();
+            $rules = Rule::where('item_id',$test['item_id'])->orderBy('eprice')->get();
             $qp = [];
             
             $type = 0;

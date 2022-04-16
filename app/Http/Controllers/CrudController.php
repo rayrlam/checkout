@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
-use App\Models\Discountrule;
+use App\Models\Rule;
 
 use Illuminate\Http\Request;
 
@@ -34,7 +34,7 @@ class CrudController extends Controller
         $qtyorid = trim($request->input('qtyorid'));
         $price =  trim($request->input('price'));
 
-        $rule = new Discountrule;
+        $rule = new Rule;
         $rule->item_id = $id;
         $rule->method = $method;
         $rule->qtyorid = $qtyorid;

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDiscountrulesTable extends Migration
+class CreateRulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDiscountrulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('discountrules', function (Blueprint $table) {
+        Schema::create('rules', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('item_id')->default(0);
             $table->boolean('method')->default(0);
@@ -33,6 +33,6 @@ class CreateDiscountrulesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('discountrules');
+        Schema::dropIfExists('rules');
     }
 }

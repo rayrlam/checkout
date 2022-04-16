@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Models\Item;
-use App\Models\Discountrule;
+use App\Models\Rule;
 
 class TestCheckout extends TestCase
 {
@@ -28,7 +28,7 @@ class TestCheckout extends TestCase
         }
         $unitprice = $item->unitprice;
         $arr = [];
-        $rules = Discountrule::where('item_id',$item_id)->orderBy('eprice')->get();
+        $rules = Rule::where('item_id',$item_id)->orderBy('eprice')->get();
         $qp = [];
         $type = 0;
         if(count($rules) > 0){
