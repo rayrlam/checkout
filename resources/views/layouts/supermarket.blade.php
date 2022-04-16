@@ -40,6 +40,17 @@
                 background-color: #04AA6D;
                 color: white;
             }
+            .button.cal {
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                padding: 10px 30px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                cursor: pointer;
+            }
         </style>
     </head>
     <body class="antialiased">
@@ -54,7 +65,10 @@
 
                             <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Welcome</a>
 
-                            <a href="{{ url('/checkout') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Checkout</a>
+                            <a href="{{ route('checkout') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Checkout</a>
+
+                            <a href="{{ route('calculator') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Calculator</a>
+
 
                         @auth
                             <a href="{{ url('/dashboard') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>

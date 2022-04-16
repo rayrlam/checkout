@@ -13,8 +13,8 @@
             Items & Rules
         <h2>
     
-        <div class="mt-4">
-            <table id="items" style="margin:auto;width:97%">
+        <div class="text-xl mt-4 font-semibold text-gray-900 dark:text-white">
+            <table id="items" style="margin:auto;">
                 <tr>
                     <th>Item</th>
                     <th>Unit Price</th>
