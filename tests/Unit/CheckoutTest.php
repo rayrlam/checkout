@@ -24,19 +24,19 @@ class TestCheckout extends TestCase
 
     public function test_checkout0_equal_88()
     {
-        $sum = CheckoutHelper::cal(CheckoutHelper::$checkout_tests[0]);
+        $sum = CheckoutHelper::checkout(CheckoutHelper::$checkout_tests[0]);
         $this->assertEquals($sum , 88);
     }
 
     public function test_checkout1_equal_70()
     {
-        $sum = CheckoutHelper::cal(CheckoutHelper::$checkout_tests[1]);
+        $sum = CheckoutHelper::checkout(CheckoutHelper::$checkout_tests[1]);
         $this->assertEquals($sum , 70);
     }
 
     public function test_checkout2_equal_350()
     {
-        $sum = CheckoutHelper::cal(CheckoutHelper::$checkout_tests[2]);
+        $sum = CheckoutHelper::checkout(CheckoutHelper::$checkout_tests[2]);
         $this->assertEquals($sum , 350);
     }
 }
