@@ -86,5 +86,31 @@ class DataSeeder extends Seeder
             'sprice'=>5.00,
             'eprice'=>5.000000
         ]);
+
+        // create below rules for testing
+
+        // DB::table('rules')->insert([
+        //     'item_id' => 4,
+        //     'method'=>0,
+        //     'qtyorid'=>5,
+        //     'sprice'=>20,
+        //     'eprice'=>4.000000
+        // ]);
+
+        // DB::table('rules')->insert([
+        //     'item_id' => 4,
+        //     'method'=>0,
+        //     'qtyorid'=>3,
+        //     'sprice'=>27,
+        //     'eprice'=>9.000000
+        // ]);
+
+        // DB::table('rules')->insert([
+        //     'item_id' => 4,
+        //     'method'=>0,
+        //     'qtyorid'=>2,
+        //     'sprice'=>20,
+        //     'eprice'=>10.000000
+        // ]);
     }
 }

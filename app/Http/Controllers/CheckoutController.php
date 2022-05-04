@@ -1,19 +1,18 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
-use App\Models\Rule;
 use App\Helpers\CheckoutHelper;
 
 class CheckoutController extends Controller
-{   
+{  
     public function checkout()
     {
         $sum = [];
-        foreach(CheckoutHelper::$checkout_tests as $v){
-            $sum[] = CheckoutHelper::cal($v);
+        foreach(CheckoutHelper::$checkout_tests as $v)
+        {
+            $sum[] = CheckoutHelper::checkout($v);
         }
 
         return view('checkout', compact(['sum']));
@@ -21,9 +20,7 @@ class CheckoutController extends Controller
 
     public function calculator()
     {
-        $arr = $ar = [];
         $items = Item::all();
-
         $total = 0;
         return view('calculator',compact(['items', 'total']));
     }
@@ -31,13 +28,21 @@ class CheckoutController extends Controller
     public function cal(Request $request)
     {
         $arr = [];
-        foreach($request->input('items') as $id=>$val){
+        foreach($request->input('items') as $id=>$val)
+        {
             $arr[] = ['item_id'=>$id, 'qty'=>$val];
         }
-        
-        $total = CheckoutHelper::cal($arr);
-        $items = Item::all();
 
-        return back()->with(['items'=>$items, 'total'=>$total]);
+        return back()->with(['items'=>Item::all(), 'total'=>CheckoutHelper::checkout($arr)]);
     }
+
+    public function simple_test()
+    {
+        $checkout_arr = [
+            ['item_id'=>2, 'qty'=>2],
+            ['item_id'=>1, 'qty'=>6],
+        ];
+
+        return  CheckoutHelper::checkout($checkout_arr); 
+    }    
 }

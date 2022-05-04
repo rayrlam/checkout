@@ -75,7 +75,7 @@
                     If you buy 10 ‘D’s and 6 ‘A’s, 6 of the ‘D’s will cost 5 each whilst the other 4 will cost 15 each.
                     <ul>
                         <li>
-                            Total amount should be 6 x 5 + 4 x 15 + 130 x 2 = 350. Now let's get the calculation from the "checkout" method of "CheckoutController": <b>{{ $sum[2] }}</b>. If this value equals to <b>70</b>, that means the calculation of this test case is correct. 
+                            Total amount should be 6 x 5 + 4 x 15 + 130 x 2 = 350. Now let's get the calculation from the "checkout" method of "CheckoutController": <b>{{ $sum[2] }}</b>. If this value equals to <b>350</b>, that means the calculation of this test case is correct. 
                         </li>
                     </ul>
 

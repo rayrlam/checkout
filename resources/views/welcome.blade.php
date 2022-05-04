@@ -163,6 +163,61 @@
                         </li>
                     </ul> 
                 </li>
+
+                <li style="margin-top:20px">
+                    Files
+                    <ul>
+                        <li>
+                            Controller: App\Http\Controllers\CheckoutController
+                        </li>
+                        <li>
+                            Helpers: App\Helpers\CheckoutHelper
+                        </li>
+                        <li>
+                            Seeders: App\database\seeders\DataSeeder
+                        </li>
+                        <li>
+                            Tests: Tests\Unit\ChekcoutTest
+                        </li>
+                        <li>
+                            Modes
+                            <ul>
+                                <li>App\Models\Item</li>
+                                <li>App\Models\Rule</li>
+                            </ul> 
+                        </li>
+                        <li>
+                            Views
+                            <ul>
+                                <li>
+                                    <a href="{{ route('calculator') }}">
+                                        calculator.blade.php
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('checkout') }}">
+                                        checkout.blade.php
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('welcome') }}">
+                                        welcome.blade.php
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('crud.create') }}">
+                                        crud.create.blade.php
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('crud.createRule') }}">
+                                        crud.createRule.blade.php
+                                    </a>
+                                </li>
+                            </ul> 
+                        </li>
+                    </ul>
+                </li>
             </ul>  
         </div>
     </div>

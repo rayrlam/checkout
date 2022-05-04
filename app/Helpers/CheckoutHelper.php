@@ -1,7 +1,6 @@
 <?php
 namespace App\Helpers;
 
-use Illuminate\Support\Str;
 use App\Models\Item;
 use App\Models\Rule;
 
@@ -19,59 +18,97 @@ class CheckoutHelper {
             ['item_id'=>1, 'qty'=>6],
         ],
     ];
-
-    static public function cal($test) {
-        $sum = 0;
-        $match = [];
-        foreach($test as $t){
-            $item = Item::find($t['item_id']);
-            $qty = $t['qty'];
-            $unitprice = $item->unitprice;
-            $rules = Rule::where('item_id',$t['item_id'])->orderBy('eprice')->get();
-            $qp = [];
-            
-            $type = 0;
-            if(count($rules) > 0){
-                foreach($rules as $rule){
-                    if($rule->method === 0){
-                        $qp[$rule->qtyorid] = $rule->sprice;
-                    }else{
-
-                        $type = 1;
-                        $match[$rule->qtyorid] = ['op'=>$unitprice, 'sp'=>$rule->sprice, 'qty'=>$qty];
-                    }
-                }
-            }
-
-            if($type === 0){
-                foreach($qp as $k=>$v){
-                    if($qty >= $k){
-                        $temp = floor($qty/$k);
-                        $sum += $temp * $v;
-                        $qty -=  $temp * $k;  
-                    }
-                }
-                if($qty > 0){
-                    $sum += $qty * $unitprice;
-                }
-            }
+    
+    static public function checkout(array $checkout_arr)
+    {
+        $sum = 0;    
+        $items = $list = [];
+ 
+        foreach($checkout_arr as $v){
+            $items[] = $v['item_id'];
+            $list[$v['item_id']] =  $v['qty'];
         }
 
-        if(count($match)>0){
-            foreach($test as $t){
-                $m = $t['item_id'];
-                if(isset($match[$m])){
-                    if( $match[$m]['qty'] > $t['qty']){
-                        $sum += ($match[$m]['qty'] - $t['qty'])*$match[$m]['op'] +
-                            ($t['qty'] * $match[$m]['sp']);
-                    }elseif($match[$m]['qty'] ==  $t['qty']){
-                        $sum += $t['qty'] * $match[$m]['sp'];
-                    }else{
-                        $sum += $match[$m]['qty'] * $match[$m]['sp'];
-                    }
+        $matches = self::matchMethods($items);
+
+        if(count($matches)){
+            self::cal_matches($list, $sum, $matches);
+        }
+
+        self::cal_remains($list, $sum);
+        
+        return $sum;  
+    }
+
+    static public function matchRules(string $item_id)
+    {
+        return  Rule::where('item_id',$item_id)
+                        ->orderBy('eprice')->get();
+    }
+
+    static public function matchMethods(array $items){
+        return Rule::where('method',1)
+                        ->whereIn('item_id',$items)
+                        ->whereIn('qtyorid',$items)
+                        ->orderBy('eprice')->get();
+    }
+
+    static public function unitPrice(string $item_id): float
+    {
+        return Item::find($item_id)->unitprice;
+    }
+
+    private function loops(&$list, &$sum, int $item_id)
+    {
+        foreach(self::matchRules($item_id) as $rule)
+        {
+            if($rule->method == 0)
+            {
+                if($list[$item_id] >= $rule->qtyorid)
+                {
+                    self::cal_qty($list, $sum, $item_id, $rule->sprice, $rule->qtyorid);
                 }
             }
+            elseif($rule->method == 1)
+            {
+                self::cal_match($list, $sum, $item_id, $rule->sprice, $rule->qtyorid);
+            }
         }
-        return $sum;
-    }      
+        
+        if($list[$item_id] > 0)
+        {
+            $sum += $list[$item_id] * self::unitPrice($item_id);
+        }
+        unset($list[$item_id]);
+    }
+
+    private function cal_matches(&$list, &$sum, $matches)
+    {
+        foreach($matches as $m)
+        {
+            self::loops($list, $sum, $m->item_id);
+        }
+    }
+
+    private function cal_remains(array &$list, float &$sum)
+    {
+        foreach($list as $k=>$v)
+        {
+            self::loops($list, $sum, $k);
+        }
+    }
+
+    private function cal_qty(array &$list, float &$sum, int $item_id, float $sprice, int $qty)
+    {
+        $temp = floor($list[$item_id]/$qty);
+        $sum += $temp * $sprice;
+        $list[$item_id] -= $temp * $qty;
+    }
+
+    private function cal_match(array &$list, float &$sum, int $item_id, float $sprice, int $qtyorid)
+    {
+        $temp = min([$list[$item_id], $list[$qtyorid]]);
+        $sum +=  $temp * $sprice;
+        $list[$item_id] -= $temp;
+    }   
 }
