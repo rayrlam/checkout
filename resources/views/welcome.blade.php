@@ -180,7 +180,7 @@
                             Tests: Tests\Unit\ChekcoutTest
                         </li>
                         <li>
-                            Modes
+                            Models
                             <ul>
                                 <li>App\Models\Item</li>
                                 <li>App\Models\Rule</li>
