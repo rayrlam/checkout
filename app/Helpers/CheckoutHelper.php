@@ -58,7 +58,7 @@ class CheckoutHelper {
         return Item::find($item_id)->unitprice;
     }
 
-    private function loops(&$list, &$sum, int $item_id)
+    static private function loops(&$list, &$sum, int $item_id)
     {
         foreach(self::matchRules($item_id) as $rule)
         {
@@ -82,7 +82,7 @@ class CheckoutHelper {
         unset($list[$item_id]);
     }
 
-    private function cal_matches(&$list, &$sum, $matches)
+    static private function cal_matches(&$list, &$sum, $matches)
     {
         foreach($matches as $m)
         {
@@ -90,7 +90,7 @@ class CheckoutHelper {
         }
     }
 
-    private function cal_remains(array &$list, float &$sum)
+    static private function cal_remains(array &$list, float &$sum)
     {
         foreach($list as $k=>$v)
         {
@@ -98,14 +98,14 @@ class CheckoutHelper {
         }
     }
 
-    private function cal_qty(array &$list, float &$sum, int $item_id, float $sprice, int $qty)
+    static private function cal_qty(array &$list, float &$sum, int $item_id, float $sprice, int $qty)
     {
         $temp = floor($list[$item_id]/$qty);
         $sum += $temp * $sprice;
         $list[$item_id] -= $temp * $qty;
     }
 
-    private function cal_match(array &$list, float &$sum, int $item_id, float $sprice, int $qtyorid)
+    static private function cal_match(array &$list, float &$sum, int $item_id, float $sprice, int $qtyorid)
     {
         $temp = min([$list[$item_id], $list[$qtyorid]]);
         $sum +=  $temp * $sprice;
