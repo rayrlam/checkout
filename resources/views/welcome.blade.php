@@ -1,26 +1,24 @@
 <x-supermarket-layout>
     <x-slot name="header">
         <div class="flex justify-center sm:justify-start sm:pt-0">
-            <h1 class="">
-                {{ __('Programming exercise – supermarket checkout') }}    
-            </h1>
+            {{ __('Programming exercise – supermarket checkout') }}    
         </div>
     </x-slot>
 
-    <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
+    <div class="p-4 lg:border-2  lg:border-zinc-300">
                             
-        <div class="ml-4 text-xl mt-4 font-semibold text-gray-900 dark:text-white">
+        <div class=" text-xl mt-4 font-semibold text-gray-900 dark:text-white">
             Written in the PHP programming language, implement the code for a supermarket checkout that calculates the total price of a number of items
         </div>
 
 
-        <div class="ml-4 text-xl mt-4 font-semibold text-gray-900 dark:text-white">
+        <div class=" text-xl mt-4 font-semibold text-gray-900 dark:text-white">
             In a normal supermarket, items for sale are identified using Stock Keeping Units, or ‘SKUs’. In our store, we’ll use individual letters of the alphabet (A, B, C, and so on) to represent these SKUs. Our goods are priced individually, however, some items are 
             multi-priced: buy <b>n</b> of them, and they’ll cost you <b>y</b> instead. 
         
         </div>
 
-        <div class="ml-4 text-xl mt-4 font-semibold text-gray-900 dark:text-white">
+        <div class=" text-xl mt-4 font-semibold text-gray-900 dark:text-white">
             For example, item ‘A’ might cost <b>£0.50</b> individually, but this week we have a special offer: buy three ‘A’s and they’ll cost you <b>£1.30</b>. In fact, this week’s prices are:
         </div>
     
@@ -116,11 +114,11 @@
             </p>
         </div>
         
-        <div class="ml-4 text-xl mt-4 font-semibold text-gray-900 dark:text-white">
+        <div class=" text-xl mt-4 font-semibold text-gray-900 dark:text-white">
             <h2 class="text-xl">Setup Information</h2>
         </div>
 
-        <div class="ml-4 text-xl mt-4 font-semibold text-gray-900 dark:text-white">
+        <div class=" text-xl mt-4 font-semibold text-gray-900 dark:text-white">
             <ul>
                 <li>Laravel Installation - <a href="https://laravel.com/docs/9.x/installation" target="_blank">https://laravel.com/docs/9.x/installation</a></li>
                 <li>Create Database supermarket</li>
