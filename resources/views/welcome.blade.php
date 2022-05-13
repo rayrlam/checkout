@@ -7,18 +7,18 @@
 
     <div class="p-4 lg:border-2  lg:border-zinc-300">
                             
-        <div class=" text-xl mt-4 font-semibold text-gray-900 dark:text-white">
+        <div class="text-gray-900 dark:text-white">
             Written in the PHP programming language, implement the code for a supermarket checkout that calculates the total price of a number of items
         </div>
 
 
-        <div class=" text-xl mt-4 font-semibold text-gray-900 dark:text-white">
+        <div class="mt-4  text-gray-900 dark:text-white">
             In a normal supermarket, items for sale are identified using Stock Keeping Units, or ‘SKUs’. In our store, we’ll use individual letters of the alphabet (A, B, C, and so on) to represent these SKUs. Our goods are priced individually, however, some items are 
             multi-priced: buy <b>n</b> of them, and they’ll cost you <b>y</b> instead. 
         
         </div>
 
-        <div class=" text-xl mt-4 font-semibold text-gray-900 dark:text-white">
+        <div class="mt-4  text-gray-900 dark:text-white">
             For example, item ‘A’ might cost <b>£0.50</b> individually, but this week we have a special offer: buy three ‘A’s and they’ll cost you <b>£1.30</b>. In fact, this week’s prices are:
         </div>
     
@@ -59,22 +59,22 @@
         
         <div class="mt-4">
             <ul class="pt-8">
-                <li>
+                <li class="mb-4">
                     This exercise will be used to gauge how you approach a software engineering problem – the processes you use, the quality of your code and the robustness of your solution.
                 </li>    
-                <li>
+                <li class="mb-4">
                     <b>DO</b> use as many or as few technologies and processes as you normally would when working as a Software Engineer
 
-                    <ul>
+                    <ul class="mt-4">
                         <li>
                             Feel free to write tests, use version control and rely on the tools provided by the IDE.
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="mb-4">
                     <b>DON’T</b> get hung up on the specifics of the implementation
                     <ul>
-                        <li>
+                        <li class="mt-4 mb-4">
                             The problem is intentionally abstract, giving you the freedom to come up with your own unique solution.
                         </li>
                         <li>
@@ -89,9 +89,7 @@
         </div>
 
         <div class="mt-4">
-            <p>    
-            ________________________________________________________________________________________________________________________
-            </p>
+            <hr class="hr mb-4" />
             <ol>
                 <li>
                     The price calculated for any quantity of an SKU with multiple special prices will be the cheapest combination of its special prices. For example: 
@@ -107,18 +105,14 @@
         </div>
 
         <div class="mt-4">
-            <p>
-            
-            ________________________________________________________________________________________________________________________
-          
-            </p>
+            <hr class="hr" />
         </div>
         
-        <div class=" text-xl mt-4 font-semibold text-gray-900 dark:text-white">
-            <h2 class="text-xl">Setup Information</h2>
+        <div class="text-xl mt-4  text-gray-900 dark:text-white">
+            <h2 class="font-bold">Setup Information</h2>
         </div>
 
-        <div class=" text-xl mt-4 font-semibold text-gray-900 dark:text-white">
+        <div class="mt-4  text-gray-900 dark:text-white">
             <ul>
                 <li>Laravel Installation - <a href="https://laravel.com/docs/9.x/installation" target="_blank">https://laravel.com/docs/9.x/installation</a></li>
                 <li>Create Database supermarket</li>
@@ -126,29 +120,41 @@
                 <li>Run Laravel Command
                     <ul>
                         <li>
-                            php artisan migrate
-                            <ul>
-                                <li>Create all tables for this app</li>
-                            </ul>
+                            <div class="mt-4 bg-blue-600 text-gray-200 p-6 rounded-lg">
+                                <div class="text-gray-400">
+                                    /*<br>
+                                    ** Create all tables for this app<br>
+                                    */
+                                </div>
+                                php artisan migrate        
+                            </div>
                         </li>
                         <li class="mt-4">
-                            php artisan db:seed --class=DataSeeder
-                            <ul>
-                                <li>Create the dumpy data for this app</li>
-                            </ul>    
+                            <div class="mt-4 bg-blue-600 text-gray-200 p-6 rounded-lg">
+                                <div class="text-gray-400">
+                                    /*<br>
+                                    ** Create the dumpy data for this app<br>
+                                    */
+                                </div>
+                                php artisan db:seed --class=DataSeeder     
+                            </div>   
                         </li>
                         <li class="mt-4">
-                            php artisan test
-                            <ul>
-                                <li>Run the CheckoutTest to check for errors</li>
-                            </ul>
+                            <div class="mt-4 bg-blue-600 text-gray-200 p-6 rounded-lg">
+                                <div class="text-gray-400">
+                                    /*<br>
+                                    ** Run the CheckoutTest to check for errors<br>
+                                    */
+                                </div>
+                                php artisan test    
+                            </div>   
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="mt-4">
                     Register an account or use the below information to entry the backend 
                     <ul>
-                        <li>
+                        <li class="ml-4">
                             Email: rayrlam@yaho.com.hk
                             <br/>
                             Password: 12345678   
@@ -161,60 +167,55 @@
                         </li>
                     </ul> 
                 </li>
-
+            </ul>
+            <ul class="break-all">
                 <li style="margin-top:20px">
-                    Files
+                    Main Files
+                </li>    
+                <li class="text-indigo-700">App\Http\Controllers</li>
+                <li class="ml-4 pb-4">CheckoutController</li>
+
+                <li class="text-indigo-700">App\Helpers</li>
+                <li class="ml-4 pb-4">CheckoutHelper</li>
+
+                <li class="text-indigo-700">App\database\seeders</li>
+                <li class="ml-4 pb-4">DataSeeder</li>
+
+                <li class="text-indigo-700">Tests\Unit</li>
+                <li class="ml-4 pb-4">ChekcoutTest</li>
+
+                <li class="text-indigo-700">App\Models</li>
+                <li class="ml-4">Item</li>
+                <li class="ml-4 pb-4">Rule</li>
+                         
+                <li class="text-indigo-700">Views</li>    
                     <ul>
-                        <li>
-                            Controller: App\Http\Controllers\CheckoutController
+                        <li class="ml-4">
+                            <a href="{{ route('calculator') }}">
+                                calculator.blade.php
+                            </a>
                         </li>
-                        <li>
-                            Helpers: App\Helpers\CheckoutHelper
+                        <li class="ml-4">
+                            <a href="{{ route('checkout') }}">
+                                checkout.blade.php
+                            </a>
                         </li>
-                        <li>
-                            Seeders: App\database\seeders\DataSeeder
+                        <li class="ml-4">
+                            <a href="{{ route('welcome') }}">
+                                welcome.blade.php
+                            </a>
                         </li>
-                        <li>
-                            Tests: Tests\Unit\ChekcoutTest
+                        <li class="ml-4">
+                            <a href="{{ route('crud.create') }}">
+                                crud.create.blade.php
+                            </a>
                         </li>
-                        <li>
-                            Models
-                            <ul>
-                                <li>App\Models\Item</li>
-                                <li>App\Models\Rule</li>
-                            </ul> 
+                        <li class="ml-4">
+                            <a href="{{ route('crud.createRule') }}">
+                                crud.createRule.blade.php
+                            </a>
                         </li>
-                        <li>
-                            Views
-                            <ul>
-                                <li>
-                                    <a href="{{ route('calculator') }}">
-                                        calculator.blade.php
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('checkout') }}">
-                                        checkout.blade.php
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('welcome') }}">
-                                        welcome.blade.php
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('crud.create') }}">
-                                        crud.create.blade.php
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('crud.createRule') }}">
-                                        crud.createRule.blade.php
-                                    </a>
-                                </li>
-                            </ul> 
-                        </li>
-                    </ul>
+                    </ul> 
                 </li>
             </ul>  
         </div>

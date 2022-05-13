@@ -54,6 +54,10 @@
                 font-size: 16px;
                 cursor: pointer;
             }
+
+            hr.hr {
+                border-top: 2px solid green;
+            }
         </style>
 
     </head>
@@ -63,7 +67,7 @@
         <div>
    
             <!--Main-->
-            <div class="container pt-8 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+            <div class="container pt-4 mx-auto flex flex-wrap flex-col md:flex-row items-center">
                 
                 <!--Left Col-->
                 <div class="flex flex-col  w-full justify-center">
