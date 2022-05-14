@@ -115,8 +115,8 @@
         <div class="mt-4  text-gray-900 dark:text-white">
             <ul>
                 <li>Laravel Installation - <a href="https://laravel.com/docs/9.x/installation" target="_blank">https://laravel.com/docs/9.x/installation</a></li>
-                <li>Create Database supermarket</li>
-                <li>Edit .env at DB_DATABASE, DB_USERNAME & DB_PASSWORD for database connection</li>
+                <li>Create Database // Database name should match the name of DB_DATABASE of the file .env.example</li>
+                <li>Rename .env.example to .env</li>
                 <li>Run Laravel Command
                     <ul>
                         <li>
