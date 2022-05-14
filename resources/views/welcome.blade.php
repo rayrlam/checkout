@@ -5,7 +5,7 @@
         </div>
     </x-slot>
 
-    <div class="p-4 lg:border-2  lg:border-zinc-300">
+    <div class="p-8 lg:border-2  lg:border-zinc-300">
                             
         <div class="text-gray-900 dark:text-white">
             Written in the PHP programming language, implement the code for a supermarket checkout that calculates the total price of a number of items
@@ -148,6 +148,16 @@
                                 </div>
                                 php artisan test    
                             </div>   
+                        </li>
+                        <li class="mt-4">
+                            <div class="bg-blue-600 text-gray-100 p-6 rounded-lg">
+                                <div class="text-gray-400">
+                                    /*<br>
+                                    ** Running local server<br>
+                                    */
+                                </div>
+                                php artisan serve        
+                            </div>
                         </li>
                     </ul>
                 </li>
