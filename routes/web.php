@@ -21,8 +21,6 @@ Route::middleware(['throttle:60,1'])->group(function () {
     })->name('welcome');
 
     Route::get('/simple_test', [CheckoutController::class, 'simple_test'])->name('simple_test');
-
-    Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
     Route::get('/calculator', [CheckoutController::class, 'calculator'])->name('calculator');
     Route::post('/cal', [CheckoutController::class, 'cal'])->name('cal');
 });

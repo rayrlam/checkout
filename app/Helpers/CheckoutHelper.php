@@ -17,6 +17,20 @@ class CheckoutHelper {
             ['item_id'=>4, 'qty'=>10],
             ['item_id'=>1, 'qty'=>6],
         ],
+        [
+            ['item_id'=>1, 'qty'=>11],
+        ],
+        [
+            ['item_id'=>2, 'qty'=>5],
+        ],
+        [
+            ['item_id'=>1, 'qty'=>4],
+            ['item_id'=>2, 'qty'=>5],
+            ['item_id'=>3, 'qty'=>8],
+            ['item_id'=>4, 'qty'=>3],
+            ['item_id'=>5, 'qty'=>6],
+        ],
+
     ];
     
     static public function checkout(array $checkout_arr)

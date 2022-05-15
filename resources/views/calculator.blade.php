@@ -1,8 +1,14 @@
 <x-supermarket-layout>
     <div class="p-4 lg:border-2  lg:border-zinc-300">   
-        <h2 class="font-bold lg:text-3xl text-2xl mt-4 mb-4">
-            {{ __('Calculator') }} 
-        </h2>
+        <div class="flex" style="justify-content:space-between; align-items:baseline">
+            <h2 class="font-bold lg:text-3xl text-2xl mt-4 mb-4">
+                {{ __('Calculator') }} 
+            </h2>
+            <div class="mt-4 mb-4">
+                <a href="{{route('welcome')}}" class="text-green-500 hover:text-blue-500">>> Welcome</a>
+            </div>
+        </div>
+       
         <div class="mt-4">
             <form method="post" action="{{route('cal')}}">
                         @csrf
@@ -107,6 +113,14 @@
                         <ul class="list-disc">
                             <li class="ml-4">
                                 Total amount should be 45 x 2 + 30 = 120.
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="mt-4">
+                        If you buy 4 ‘A’s, 5 ‘B’s, 8 ‘C’s, 3 ‘D’s & 6 ‘E’s.  
+                        <ul class="list-disc">
+                            <li class="ml-4">
+                                Total amount should be 130 + 50 + 90 + 30 + 138 + 15 + 30 = 483.
                             </li>
                         </ul>
                     </li>

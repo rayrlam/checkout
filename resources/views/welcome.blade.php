@@ -1,9 +1,14 @@
 <x-supermarket-layout>
     <div class="p-8 lg:border-2  lg:border-zinc-300">
 
-        <h2 class="font-bold lg:text-3xl text-2xl mt-4 mb-4">
-            {{ __('Welcome') }} 
-        </h2>
+        <div class="flex" style="justify-content:space-between; align-items:baseline">
+            <h2 class="font-bold lg:text-3xl text-2xl mt-4 mb-4">
+                {{ __('Welcome') }} 
+            </h2>
+            <div class="mt-4 mb-4">
+                <a href="{{route('calculator')}}" class="text-green-500 hover:text-blue-500">>> Calculator</a>
+            </div>
+        </div>
                                 
         <div class="text-gray-900 dark:text-white">
             Written in the PHP programming language, implement the code for a supermarket checkout that calculates the total price of a number of items
@@ -116,7 +121,7 @@
                     Create Database laravel
                 </li>
                 <li>
-                    <div class="mt-4 bg-blue-600 text-gray-100 p-6 rounded-lg">
+                    <div class="mt-4 bg-blue-800 text-gray-100 p-6 rounded-lg">
                         <div class="text-gray-400 mb-2">
                             /*<br>
                             ** Create by MySQL Comman<br>
@@ -129,7 +134,7 @@
                 <li>    
                     <ul>
                         <li>
-                            <div class="mt-4 bg-blue-600 text-gray-100 p-6 rounded-lg">
+                            <div class="mt-4 bg-blue-800 text-gray-100 p-6 rounded-lg">
                                 <div class="text-gray-400 mb-2">
                                     /*<br>
                                     ** Create all tables for this app<br>
@@ -210,23 +215,23 @@
                 <li class="text-indigo-700">Views</li>    
                     <ul>
                         <li class="ml-4">
-                            <a href="{{ route('calculator') }}">
-                                calculator.blade.php
+                            <a href="{{ route('calculator') }}" class="text-green-500 hover:text-blue-500">
+                                >> calculator.blade.php
                             </a>
                         </li>
                         <li class="ml-4">
-                            <a href="{{ route('welcome') }}">
-                                welcome.blade.php
+                            <a href="{{ route('welcome') }}" class="text-green-500 hover:text-blue-500">
+                                >> welcome.blade.php
                             </a>
                         </li>
                         <li class="ml-4">
-                            <a href="{{ route('crud.create') }}">
-                                crud.create.blade.php
+                            <a href="{{ route('crud.create') }}" class="text-green-500 hover:text-blue-500">
+                                >> crud.create.blade.php
                             </a>
                         </li>
                         <li class="ml-4">
-                            <a href="{{ route('crud.createRule') }}">
-                                crud.createRule.blade.php
+                            <a href="{{ route('crud.createRule') }}" class="text-green-500 hover:text-blue-500">
+                                >> crud.createRule.blade.php
                             </a>
                         </li>
                     </ul> 

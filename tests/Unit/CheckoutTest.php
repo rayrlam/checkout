@@ -9,19 +9,6 @@ use App\Helpers\CheckoutHelper;
 
 class TestCheckout extends TestCase
 {
-    // static public $checkout_tests = [
-    //     [
-    //         ['item_id'=>3, 'qty'=>5],
-    //     ],
-    //     [
-    //         ['item_id'=>3, 'qty'=>4],
-    //     ],
-    //     [
-    //         ['item_id'=>4, 'qty'=>10],
-    //         ['item_id'=>1, 'qty'=>6],
-    //     ],
-    // ];
-
     public function test_checkout0_equal_88()
     {
         $sum = CheckoutHelper::checkout(CheckoutHelper::$checkout_tests[0]);
@@ -39,4 +26,23 @@ class TestCheckout extends TestCase
         $sum = CheckoutHelper::checkout(CheckoutHelper::$checkout_tests[2]);
         $this->assertEquals($sum , 350);
     }
+
+    public function test_checkout3_equal_490()
+    {
+        $sum = CheckoutHelper::checkout(CheckoutHelper::$checkout_tests[3]);
+        $this->assertEquals($sum , 490);
+    }
+
+    public function test_checkout4_equal_120()
+    {
+        $sum = CheckoutHelper::checkout(CheckoutHelper::$checkout_tests[4]);
+        $this->assertEquals($sum , 120);
+    }
+
+    public function test_checkout5_equal_483()
+    {
+        $sum = CheckoutHelper::checkout(CheckoutHelper::$checkout_tests[5]);
+        $this->assertEquals($sum , 483);
+    }
+
 }
