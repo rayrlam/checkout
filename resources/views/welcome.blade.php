@@ -1,12 +1,10 @@
 <x-supermarket-layout>
-    <x-slot name="header">
-        <div class="flex justify-center sm:justify-start sm:pt-0">
-            {{ __('Programming exercise – supermarket checkout') }}    
-        </div>
-    </x-slot>
-
     <div class="p-8 lg:border-2  lg:border-zinc-300">
-                            
+
+        <h2 class="font-bold lg:text-3xl text-2xl mt-4 mb-4">
+            {{ __('Welcome') }} 
+        </h2>
+                                
         <div class="text-gray-900 dark:text-white">
             Written in the PHP programming language, implement the code for a supermarket checkout that calculates the total price of a number of items
         </div>
@@ -98,10 +96,8 @@
                 <li class="pt-8">
                     For every ‘D’ purchased, if there is also an ‘A’ purchased, it will cost <b>5</b> instead of <b>15</b>. For example, if you buy <b>10</b> ‘D’s and <b>6</b> ‘A’s, <b>6</b> 
                     of the ‘D’s will cost <b>5 each</b> whilst the other <b>4</b> will cost <b>15 each</b>.
-
                 </li>
             </ol>
-            
         </div>
 
         <div class="mt-4">
@@ -114,44 +110,54 @@
 
         <div class="mt-4  text-gray-900 dark:text-white">
             <ul>
-                <li>Laravel Installation - <a href="https://laravel.com/docs/9.x/installation" target="_blank">https://laravel.com/docs/9.x/installation</a></li>
-                <li>Create Database // Database name should match the name of DB_DATABASE of the file .env.example</li>
-                <li>Rename .env.example to .env</li>
-                <li>Run Laravel Command
+                <li class="ml-4">Laravel Installation - <a href="https://laravel.com/docs/9.x/installation" target="_blank">https://laravel.com/docs/9.x/installation</a></li>
+                <li class="ml-4">Rename .env.example to .env</li>
+                <li class="ml-4">
+                    Create Database laravel
+                </li>
+                <li>
+                    <div class="mt-4 bg-blue-600 text-gray-100 p-6 rounded-lg">
+                        <div class="text-gray-400 mb-2">
+                            /*<br>
+                            ** Create by MySQL Comman<br>
+                            */
+                        </div>
+                        CREATE DATABASE LARAVEL;        
+                    </div>    
+                </li>
+                <li class="ml-4 mt-4">Run Laravel Command</li>
+                <li>    
                     <ul>
                         <li>
-                            <div class="mt-4 bg-blue-600 text-gray-200 p-6 rounded-lg">
-                                <div class="text-gray-400">
+                            <div class="mt-4 bg-blue-600 text-gray-100 p-6 rounded-lg">
+                                <div class="text-gray-400 mb-2">
                                     /*<br>
                                     ** Create all tables for this app<br>
                                     */
                                 </div>
                                 php artisan migrate        
-                            </div>
-                        </li>
-                        <li class="mt-4">
-                            <div class="mt-4 bg-blue-600 text-gray-200 p-6 rounded-lg">
-                                <div class="text-gray-400">
+                         
+                    
+                    
+                            
+                                <div class="text-gray-400 mt-4 mb-2">
                                     /*<br>
                                     ** Create the dumpy data for this app<br>
                                     */
                                 </div>
                                 php artisan db:seed --class=DataSeeder     
-                            </div>   
-                        </li>
-                        <li class="mt-4">
-                            <div class="mt-4 bg-blue-600 text-gray-200 p-6 rounded-lg">
-                                <div class="text-gray-400">
+                   
+             
+                                <div class="text-gray-400 mt-4 mb-2">
                                     /*<br>
                                     ** Run the CheckoutTest to check for errors<br>
                                     */
                                 </div>
                                 php artisan test    
-                            </div>   
-                        </li>
-                        <li class="mt-4">
-                            <div class="bg-blue-600 text-gray-100 p-6 rounded-lg">
-                                <div class="text-gray-400">
+                    
+                   
+                          
+                                <div class="text-gray-400 mt-4 mb-2">
                                     /*<br>
                                     ** Running local server<br>
                                     */
@@ -179,6 +185,9 @@
                 </li>
             </ul>
             <ul class="break-all">
+                <li>
+                    <hr class="hr mt-4 mb-4" />
+                </li>
                 <li style="margin-top:20px">
                     Main Files
                 </li>    
@@ -203,11 +212,6 @@
                         <li class="ml-4">
                             <a href="{{ route('calculator') }}">
                                 calculator.blade.php
-                            </a>
-                        </li>
-                        <li class="ml-4">
-                            <a href="{{ route('checkout') }}">
-                                checkout.blade.php
                             </a>
                         </li>
                         <li class="ml-4">

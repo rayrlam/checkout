@@ -29,7 +29,6 @@
             #items td, #items th {
                 border: 1px solid #ddd;
                 padding: 8px;
-                padding-left: 20px;
             }
 
             #items tr:nth-child(even){background-color: #f2f2f2;}
@@ -63,15 +62,18 @@
     </head>
 
     <body class="leading-normal tracking-normal text-gray-900" style="font-family: 'Source Sans Pro', sans-serif;">
-
         <div>
    
             <!--Main-->
-            <div class="container pt-4 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+            <div class="container pt-4 mx-auto flex flex-wrap flex-col md:flex-row items-center justify-start">
                 
                 <!--Left Col-->
                 <div class="flex flex-col  w-full justify-center">
-                    <h1 class="text-3xl md:text-5xl text-purple-800 font-bold leading-tight text-center md:text-left">{{ $header }}</h1>
+                    <h1 class="text-3xl md:text-5xl text-purple-800 font-bold leading-tight text-center md:text-left">
+                        <div class="flex justify-center sm:justify-start sm:pt-0">
+                            <a href="{{route('welcome')}}">{{ __('Programming Exercise') }}</a>    
+                        </div>
+                    </h1>
                     <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle">{{ $slot }}</p>
                 </div>
                 

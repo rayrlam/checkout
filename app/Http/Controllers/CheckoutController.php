@@ -7,17 +7,6 @@ use App\Helpers\CheckoutHelper;
 
 class CheckoutController extends Controller
 {  
-    public function checkout()
-    {
-        $sum = [];
-        foreach(CheckoutHelper::$checkout_tests as $v)
-        {
-            $sum[] = CheckoutHelper::checkout($v);
-        }
-
-        return view('checkout', compact(['sum']));
-    }
-
     public function calculator()
     {
         $items = Item::all();
