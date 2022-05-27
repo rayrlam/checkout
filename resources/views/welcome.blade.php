@@ -22,7 +22,7 @@
         </div>
     
         <div class="mt-4">
-            <table id="items" style="margin:auto;width:97%">
+            <table id="items" style="margin:auto;">
                 <tr>
                     <th>Item</th>
                     <th>Unit Price</th>
