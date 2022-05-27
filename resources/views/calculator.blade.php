@@ -1,12 +1,9 @@
 <x-supermarket-layout>
-    <div class="p-4 lg:border-2  lg:border-zinc-300">   
+    <div class="p-8 w-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div class="flex" style="justify-content:space-between; align-items:baseline">
             <h2 class="font-bold lg:text-3xl text-2xl mt-4 mb-4">
                 {{ __('Calculator') }} 
             </h2>
-            <div class="mt-4 mb-4">
-                <a href="{{route('welcome')}}" class="text-green-500 hover:text-blue-500">>> Welcome</a>
-            </div>
         </div>
        
         <div class="mt-4">
@@ -16,14 +13,16 @@
                     <tr>
                         <th>Item</th>
                         <th>Unit Price</th>
-                        <th></th>
+                        <th>Qty</th>
                     </tr>
                     @foreach($items as $item)
                     <tr>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->unitprice }}</td>
                         <td>
-                            <input name="items[{{ $item->id }}]" type="text" style="border: 1px solid #333;" placeholder="Input Qty" />
+                            <div>
+                                <input name="items[{{ $item->id }}]" type="text"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Qty">
+                            </div>
                         </td>
                     </tr>
                     @endforeach
@@ -38,8 +37,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3" style="padding:10px;">
-                            <button  type="submit" class="button cal">Go</button>
+                        <td colspan="3" style="padding-top:20px;">
+                            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Go</button>
                         </td>
                     </tr>
                 </table>
