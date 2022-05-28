@@ -155,6 +155,15 @@ php artisan db:seed --class=DataSeeder
 php artisan test       
 </code></pre>
                 </li>
+                <li class="mt-4">       
+<pre class="rounded-lg"><code class="language-php">
+/*
+** Running local server
+*/
+
+php artisan serve           
+</code></pre>
+                </li>
                 <li class="mt-4">
                     Register an account to entry the backend 
                     <ul>
