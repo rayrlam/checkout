@@ -3,12 +3,59 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
+use App\Models\User;
 use App\Models\Item;
 use App\Models\Rule;
 use App\Helpers\CheckoutHelper;
 
 class TestCheckout extends TestCase
 {
+    public function test_welcome_page_can_be_rendered()
+    {
+        $response = $this->get('/');
+        $response->assertStatus(200);
+    }
+
+    public function test_calculator_page_can_be_rendered()
+    {
+        $response = $this->get('/calculator');
+        $response->assertStatus(200);
+    }
+
+    public function test_without_authentication()
+    {
+        $response = $this->get('/dashboard');
+        $response->assertStatus(302);
+
+        $response = $this->get('/create');
+        $response->assertStatus(302);
+
+        $response = $this->get('/createRule');
+        $response->assertStatus(302);
+
+        $response = $this->get('/itemsearch');
+        $response->assertStatus(302);
+    }
+
+    public function test_requires_authentication()
+    {
+        $user = User::factory()->create();
+        $actUser = $this->actingAs($user);
+ 
+        $response = $actUser->get('/dashboard');
+        $response->assertStatus(200);
+        $response->assertSee('Dashboard');
+
+        $response = $actUser->get('/create');
+        $response->assertStatus(200);
+ 
+        $response =  $actUser->get('/createRule');
+        $response->assertStatus(200);
+
+        $response =  $actUser->get('/itemsearch');
+        $response->assertStatus(200);
+    }
+
     public function test_checkout0_equal_88()
     {
         $sum = CheckoutHelper::checkout(CheckoutHelper::$checkout_tests[0]);
