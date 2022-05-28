@@ -44,5 +44,4 @@ class TestCheckout extends TestCase
         $sum = CheckoutHelper::checkout(CheckoutHelper::$checkout_tests[5]);
         $this->assertEquals($sum , 483);
     }
-
 }

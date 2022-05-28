@@ -1,13 +1,9 @@
 <x-supermarket-layout>
-    <div class="p-8 lg:border-2  lg:border-zinc-300">
-
+    <div class="p-8 w-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div class="flex" style="justify-content:space-between; align-items:baseline">
             <h2 class="font-bold lg:text-3xl text-2xl mt-4 mb-4">
                 {{ __('Welcome') }} 
             </h2>
-            <div class="mt-4 mb-4">
-                <a href="{{route('calculator')}}" class="text-green-500 hover:text-blue-500">>> Calculator</a>
-            </div>
         </div>
                                 
         <div class="text-gray-900 dark:text-white">
@@ -26,7 +22,7 @@
         </div>
     
         <div class="mt-4">
-            <table id="items" style="margin:auto;width:97%">
+            <table id="items" style="margin:auto;">
                 <tr>
                     <th>Item</th>
                     <th>Unit Price</th>
@@ -120,66 +116,57 @@
                 <li class="ml-4">
                     Create Database laravel
                 </li>
-                <li>
-                    <div class="mt-4 bg-blue-800 text-gray-100 p-6 rounded-lg">
-                        <div class="text-gray-400 mb-2">
-                            /*<br>
-                            ** Create by MySQL Comman<br>
-                            */
-                        </div>
-                        CREATE DATABASE LARAVEL;        
-                    </div>    
-                </li>
+                <li class="mb-4">
+
+<pre class="rounded-lg"><code class="language-php">
+/*
+** Create by MySQL Command
+*/
+
+CREATE DATABASE LARAVEL;
+</code></pre>
+                </li>         
+ 
                 <li class="ml-4 mt-4">Run Laravel Command</li>
-                <li>    
-                    <ul>
-                        <li>
-                            <div class="mt-4 bg-blue-800 text-gray-100 p-6 rounded-lg">
-                                <div class="text-gray-400 mb-2">
-                                    /*<br>
-                                    ** Create all tables for this app<br>
-                                    */
-                                </div>
-                                php artisan migrate        
-                         
-                    
-                    
-                            
-                                <div class="text-gray-400 mt-4 mb-2">
-                                    /*<br>
-                                    ** Create the dumpy data for this app<br>
-                                    */
-                                </div>
-                                php artisan db:seed --class=DataSeeder     
-                   
-             
-                                <div class="text-gray-400 mt-4 mb-2">
-                                    /*<br>
-                                    ** Run the CheckoutTest to check for errors<br>
-                                    */
-                                </div>
-                                php artisan test    
-                    
-                   
-                          
-                                <div class="text-gray-400 mt-4 mb-2">
-                                    /*<br>
-                                    ** Running local server<br>
-                                    */
-                                </div>
-                                php artisan serve        
-                            </div>
-                        </li>
-                    </ul>
+                <li class="mt-4">       
+<pre class="rounded-lg"><code class="language-php">
+/*
+** Create all tables for this app
+*/
+
+php artisan migrate        
+</code></pre>
+                </li>
+                <li class="mt-4">       
+<pre class="rounded-lg"><code class="language-php">
+/*
+** Create the dumpy data for this app
+*/
+
+php artisan db:seed --class=DataSeeder       
+</code></pre>
+                </li>
+                <li class="mt-4">       
+<pre class="rounded-lg"><code class="language-php">
+/*
+** Run the CheckoutTest to check for errors
+*/
+
+php artisan test       
+</code></pre>
+                </li>
+                <li class="mt-4">       
+<pre class="rounded-lg"><code class="language-php">
+/*
+** Running local server
+*/
+
+php artisan serve           
+</code></pre>
                 </li>
                 <li class="mt-4">
-                    Register an account or use the below information to entry the backend 
+                    Register an account to entry the backend 
                     <ul>
-                        <li class="ml-4">
-                            Email: rayrlam@yaho.com.hk
-                            <br/>
-                            Password: 12345678   
-                        </li>
                         <li>
                             Create new item at Create Item page
                         </li>

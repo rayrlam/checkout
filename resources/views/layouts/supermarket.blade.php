@@ -7,19 +7,22 @@
         <title>{{ config('app.name', 'Supermarket') }}</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
-        
-        <!-- Font Awesome if you need it
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-        -->
-        
+    
         <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
-        <!--Replace with your tailwind.css once created-->
-
+    
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
 
-        <style>
+        <link href="/css/app.css" rel="stylesheet">
 
-            body { font-family: 'Nunito', sans-serif; }
+        <link rel="stylesheet" href="{{ asset('css/prism.css')}}" />
+
+        <script src="{{ asset('js/prism.js')}}"></script>
+        <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+
+        <style>
+            hr.hr {
+                border-top: 2px solid green;
+            }
             #items {
                 font-family: Arial, Helvetica, sans-serif;
                 border-collapse: collapse;
@@ -28,7 +31,7 @@
 
             #items td, #items th {
                 border: 1px solid #ddd;
-                padding: 8px;
+                padding: 15px;
             }
 
             #items tr:nth-child(even){background-color: #f2f2f2;}
@@ -36,58 +39,54 @@
             #items tr:hover {background-color: #ddd;}
 
             #items th {
-                padding-top: 12px;
-                padding-bottom: 12px;
                 text-align: left;
                 background-color: #04AA6D;
                 color: white;
             }
-            .button.cal {
-                background-color: #4CAF50;
-                border: none;
-                color: white;
-                padding: 10px 30px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                cursor: pointer;
-            }
-
-            hr.hr {
-                border-top: 2px solid green;
-            }
+            
         </style>
-
     </head>
-
     <body class="leading-normal tracking-normal text-gray-900" style="font-family: 'Source Sans Pro', sans-serif;">
-        <div>
-   
-            <!--Main-->
-            <div class="container pt-4 mx-auto flex flex-wrap flex-col md:flex-row items-center justify-start">
-                
-                <!--Left Col-->
-                <div class="flex flex-col  w-full justify-center">
-                    <h1 class="text-3xl md:text-5xl text-purple-800 font-bold leading-tight text-center md:text-left">
-                        <div class="flex justify-center sm:justify-start sm:pt-0">
-                            <a href="{{route('welcome')}}">{{ __('Programming Exercise') }}</a>    
-                        </div>
-                    </h1>
-                    <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle">{{ $slot }}</p>
+        <!--Nav-->
+        <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+            <div class="container flex flex-wrap justify-between items-center mx-auto">
+                <a href="{{ route('welcome') }}" class="flex items-center">
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{ __('Programming Exercise') }}</span>
+                </a>
+                <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                    <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+                <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
+                    <ul class="mr-8 flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+                        @foreach([['r'=>'welcome','n'=>'Welcome'],
+                                ['r'=>'calculator','n'=>'Calculator'],] as $v)
+                            <li>
+                                <a href="{{ route($v['r']) }}" 
+                                    @if(request()->routeIs($v['r']))
+                                        class="navactive"
+                                    @else
+                                        class="navlink"
+                                    @endif 
+                                >{{ $v['n'] }}</a> 
+                            </li>
+                        @endforeach 
+                    </ul>
                 </div>
-                
-                <!--Footer-->
-                <div class="w-full pt-8 pb-8 text-sm text-center md:text-left">
-                    Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                </div>
-        
+            </div>
+        </nav>
+
+        <!--Main-->
+        <div class="container pt-4 mx-auto flex flex-wrap flex-col md:flex-row items-center justify-start">
+            <div class="flex flex-col  w-full justify-center">
+                <p class="px-12 leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle">{{ $slot }}</p>
+            </div>
+            
+            <!--Footer-->
+            <div class="w-full pt-8 pb-8 text-sm text-center md:text-left">
+                Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
             </div>
         </div>
-
-        <!-- jQuery if you need it
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        -->
-
     </body>
 </html>
