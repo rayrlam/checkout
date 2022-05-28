@@ -40,19 +40,19 @@ class TestCheckout extends TestCase
     public function test_requires_authentication()
     {
         $user = User::factory()->create();
-        $actUser = $this->actingAs($user);
+        $asUser = $this->actingAs($user);
  
-        $response = $actUser->get('/dashboard');
+        $response = $asUser->get('/dashboard');
         $response->assertStatus(200);
         $response->assertSee('Dashboard');
 
-        $response = $actUser->get('/create');
+        $response = $asUser->get('/create');
         $response->assertStatus(200);
  
-        $response =  $actUser->get('/createRule');
+        $response =  $asUser->get('/createRule');
         $response->assertStatus(200);
 
-        $response =  $actUser->get('/itemsearch');
+        $response =  $asUser->get('/itemsearch');
         $response->assertStatus(200);
     }
 
