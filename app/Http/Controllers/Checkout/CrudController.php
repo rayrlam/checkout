@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use App\Models\Item;
-use App\Models\Rule;
+namespace App\Http\Controllers\Checkout;
 
 use Illuminate\Http\Request;
+use App\Models\Checkout\Item;
+use App\Models\Checkout\Rule;
+use App\Http\Controllers\Controller as BaseController;
 
-class CrudController extends Controller
+class CrudController extends BaseController
 {   
-
-     /**
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

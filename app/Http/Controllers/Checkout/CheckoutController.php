@@ -1,16 +1,18 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Checkout;
 
 use Illuminate\Http\Request;
-use App\Models\Item;
+use App\Models\Checkout\Item;
 use App\Helpers\CheckoutHelper;
+use App\Http\Controllers\Controller as BaseController;
 
-class CheckoutController extends Controller
+class CheckoutController extends BaseController
 {  
     public function calculator()
     {
         $items = Item::all();
         $total = 0;
+    
         return view('calculator',compact(['items', 'total']));
     }
 

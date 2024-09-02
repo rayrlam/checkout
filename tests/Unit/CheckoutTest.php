@@ -4,8 +4,8 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Models\User;
-use App\Models\Item;
-use App\Models\Rule;
+use App\Models\Checkout\Item;
+use App\Models\Checkout\Rule;
 use App\Helpers\CheckoutHelper;
 
 class TestCheckout extends TestCase
@@ -58,6 +58,7 @@ class TestCheckout extends TestCase
 
     public function test_checkout0_equal_88()
     {
+        // dd(CheckoutHelper::checkout(CheckoutHelper::$checkout_tests[0]));
         $sum = CheckoutHelper::checkout(CheckoutHelper::$checkout_tests[0]);
         $this->assertEquals($sum , 88);
     }

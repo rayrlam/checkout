@@ -1,8 +1,8 @@
 <?php
 namespace App\Helpers;
 
-use App\Models\Item;
-use App\Models\Rule;
+use App\Models\Checkout\Item;
+use App\Models\Checkout\Rule;
 
 class CheckoutHelper {
 
@@ -37,7 +37,7 @@ class CheckoutHelper {
     {
         $sum = 0;    
         $items = $list = [];
- 
+
         foreach($checkout_arr as $v){
             $items[] = $v['item_id'];
             $list[$v['item_id']] =  $v['qty'];
@@ -50,7 +50,7 @@ class CheckoutHelper {
         }
 
         self::cal_remains($list, $sum);
-        
+
         return $sum;  
     }
 
