@@ -8,7 +8,7 @@ use App\Models\Checkout\Item;
 use App\Models\Checkout\Rule;
 use App\Helpers\CheckoutHelper;
 
-class TestCheckout extends TestCase
+class CheckoutTest extends TestCase
 {
     public function test_welcome_page_can_be_rendered()
     {
