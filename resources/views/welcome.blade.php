@@ -111,7 +111,7 @@
 
         <div class="mt-4  text-gray-900 dark:text-white">
             <ul>
-                <li class="ml-4">Laravel Installation - <a href="https://laravel.com/docs/9.x/installation" target="_blank">https://laravel.com/docs/9.x/installation</a></li>
+                <li class="ml-4">Laravel Installation - <a href="https://laravel.com/docs/11.x/installation" target="_blank">https://laravel.com/docs/11.x/installation</a></li>
                 <li class="ml-4">Rename .env.example to .env</li>
                 <li class="ml-4">
                     Create Database laravel
@@ -183,7 +183,7 @@ php artisan serve
                 <li style="margin-top:20px">
                     Main Files
                 </li>    
-                <li class="text-indigo-700">App\Http\Controllers</li>
+                <li class="text-indigo-700">App\Http\Controllers\Checkout</li>
                 <li class="ml-4 pb-4">CheckoutController</li>
 
                 <li class="text-indigo-700">App\Helpers</li>
@@ -195,7 +195,7 @@ php artisan serve
                 <li class="text-indigo-700">Tests\Unit</li>
                 <li class="ml-4 pb-4">ChekcoutTest</li>
 
-                <li class="text-indigo-700">App\Models</li>
+                <li class="text-indigo-700">App\Models\Checkout</li>
                 <li class="ml-4">Item</li>
                 <li class="ml-4 pb-4">Rule</li>
                          

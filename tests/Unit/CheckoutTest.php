@@ -58,7 +58,6 @@ class CheckoutTest extends TestCase
 
     public function test_checkout0_equal_88()
     {
-        // dd(CheckoutHelper::checkout(CheckoutHelper::$checkout_tests[0]));
         $sum = CheckoutHelper::checkout(CheckoutHelper::$checkout_tests[0]);
         $this->assertEquals($sum , 88);
     }
