@@ -17,7 +17,7 @@ class DataSeeder extends Seeder
 
         DB::table('users')->insert([
                 'name' => 'ray',
-                'email' => 'rayrlam@yahoo.com.hk',
+                'email' => 'raylamedeas@gmail.com',
                 'password' => '$2y$10$HkwD/XaSY3Yn3RvjRpoo1O82QfOR8IAWebTXenk.LJROG9HCwNNu.',
             ]
         );
