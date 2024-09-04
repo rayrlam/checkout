@@ -30,16 +30,20 @@ class RegistrationTest extends DuskTestCase
     public function test_password_at_least_8_characters(): void
     {
         $this->browse(function (Browser $browser) {
-               
-            $browser->type('name','Peter');
-            $browser->type('email','peter@example.com');
-            // Only input 4 characters for password 
-            $browser->type('password', '1234');
-            $browser->type('password_confirmation', '1234');
-            $browser->press('REGISTER');
+            $name = fake()->name;
+            $email = fake()->email;
+            $password = substr(fake()->password, 0, 4); 
 
-            // AssesrtSee - The password must be at least 8 characters.
-            $browser->assertSee('8 characters');
+            $browser
+                ->visit('/register')
+                ->type('#name', $name)
+                ->type('#email', $email)
+                // Only input 4 characters for password 
+                ->type('#password',  $password)
+                ->type('#password_confirmation',  $password)
+                ->press('REGISTER')
+                // AssesrtSee - The password must be at least 8 characters.
+                ->assertSee('8 characters');
         });
     }
 }
