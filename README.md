@@ -1,4 +1,7 @@
 # Laravel Testing
+![Laravel](https://img.shields.io/badge/Laravel-^11.22.0-blue)
+![PHP](https://img.shields.io/badge/PHP-^8.2.23-yellow)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 This repository of testing playground contains multiple submodules, including this Laravel testing environment.
 
