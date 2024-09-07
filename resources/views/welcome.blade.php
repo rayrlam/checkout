@@ -1,388 +1,82 @@
 <x-supermarket-layout>
-    @php
-        $rules = [
-            [
-                'A',
-                50,
-                '3 for 130'
-            ],
-            [
-                'B',
-                30,
-                '2 for 45'
-            ],
-            [
-                'C',
-                20,
-                '2 for 38::3 for 50'
-            ],
-            [
-                'D',
-                15,
-                '5 if purchased with an ‘A’'
-            ],
-            [
-                'E',
-                5,
-                null
-            ]
-        ];
-
-        $links = [
-            'home' => 'checkout/index',
-            'calculator' => 'checkout/calculator',
-            'dashboard' => 'dashboard',
-        ];
-    @endphp
-
-    <x-sub-navbar :links="$links" />
-
     <div class="block mt-3">
         <h3 class="text-3xl font-bold dark:text-white">
-            {{ __('Checkout') }} 
+            {{ __('Welcome to My ')}} <span class="text-green-600">{{  __('Technical Test') }}</span> {{  __(' Showcase') }} 
         </h3>
                 
-        <p class="mb-3 text-lg text-gray-500 md:text-xl dark:text-gray-400">
-            Written in the PHP programming language, implement the code for a supermarket checkout that calculates the total price of a number of items
-        </p>
-
         <p class="text-gray-500 dark:text-gray-400">
-            In a normal supermarket, items for sale are identified using Stock Keeping Units, or ‘SKUs’. In our store, we’ll use individual letters of the alphabet (A, B, C, and so on) to represent these SKUs. Our goods are priced individually, however, some items are 
-            multi-priced: buy <b>n</b> of them, and they’ll cost you <b>y</b> instead. 
+            Hello and welcome! My name is Ray Lam, and I am a full-stack PHP web developer with many years of experience in building dynamic and robust web applications. This site serves as a portfolio of various technical tests and coding challenges I've completed. Each project here represents a unique problem-solving journey, showcasing different aspects of my programming skills and approach to software development.
         </p>
 
-        <p class="text-gray-500 dark:text-gray-400">
-            For example, item ‘A’ might cost <b>£0.50</b> individually, but this week we have a special offer: buy three ‘A’s and they’ll cost you <b>£1.30</b>. 
-
-        </p>
-
-        <p class="text-gray-500 dark:text-gray-400 mt-3">
-            Below is a table of the prices of this week.
-        </p>
-    
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                        <th scope="col" class="px-6 py-3">
-                            Item
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Unit Price
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Special Price
-                        </th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach($rules as $index => $rule)
-                        <tr 
-                            class="
-                                @if($index%2 ==0)
-                                    bg-white dark:bg-gray-900  border-b dark:border-gray-700
-                                @else
-                                    bg-gray-50 dark:bg-gray-800 border-b dark:border-gray-700
-                                @endif
-                            ">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ $rule[0] }}
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ $rule[1] }}
-                            </td>
-                            <td class="px-6 py-4">
-                                @if(is_null($rule[2]))
-                                    &nbsp;
-                                @else
-                                    {!! str_replace('::','<br>',$rule[2]) !!}
-                                @endif
-                            </td>
-                        </tr>
-                    @endforeach                        
-                </tbody>
-            </table>
-        </div>
-
-        <div class="mt-6">
-            <h3 class="text-xl font-bold dark:text-white">
-                Notes
-            </h3>
-            <ul class="space-y-4 text-gray-500  list-disc list-inside dark:text-gray-400">   
-                <li>
-                    The price calculated for any quantity of an SKU with multiple special prices will be the cheapest combination of its special prices. For example: 
-                    If you buy 5 ‘C’s you would get <b>2 for 38 + 3 for 50</b>. If you buy 4 ‘C’s you would get <b>3 for 50 + 1 for 20</b> rather than <b>2 for 38 + 2 for 38</b>.
-                </li>
-                <li>
-                    For every ‘D’ purchased, if there is also an ‘A’ purchased, it will cost <b>5</b> instead of <b>15</b>. For example, if you buy <b>10</b> ‘D’s and <b>6</b> ‘A’s, <b>6</b> 
-                    of the ‘D’s will cost <b>5 each</b> whilst the other <b>4</b> will cost <b>15 each</b>.
-                </li>
-            </ul>
-        </div>
-
-        <div class="mt-3">
-            <p class="mt-3 mb-2 font-medium text-gray-900 dark:text-white">                        
-                This exercise will be used to gauge how you approach a software engineering problem - the processes you use, the quality of your code and the robustness of your solution.
-            </p>
-
-            <ul class="space-y-4 text-gray-500  list-disc list-inside dark:text-gray-400">   
-                <li>
-                    <b>DO</b> use as many or as few technologies and processes as you normally would when working as a Software Engineer
-
-                    <ul class="pl-5 mt-2 space-y-1 list-disc list-inside pl-[revert]">
-                        <li>
-                            Feel free to write tests, use version control and rely on the tools provided by the IDE.
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <b>DON’T</b> get hung up on the specifics of the implementation
-                    <ul class="pl-5 mt-2 space-y-1 list-disc list-inside pl-[revert]">
-                        <li>
-                            The problem is intentionally abstract, giving you the freedom to come up with your own unique solution.
-                        </li>
-                        <li>
-                            This is an opportunity to demonstrate your way of working and your approach to creative problem solving – there are no precise user requirements (aside from the specification above).
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    This exercise will last approximately <b>1.5 hours</b>
-                </li>
-            </ul>
-        </div>
-    
-        <h4 class="text-2xl font-bold dark:text-white mt-3">
-            {{ __('Setup') }} 
-        </h4>
-
-        <h5 class="text-lg font-bold dark:text-white">
-            {{ __('Prerequisites') }} 
+        <h5 class="mt-3 text-lg font-bold dark:text-white">
+            {{ __('About Me') }} 
         </h5>
 
-        <p class="mb-3 text-lg text-gray-500 md:text-xl dark:text-gray-400">
-            - Docker<br>
-            - Docker Compose<br>
-            - PHP >= 8.2<br>
-            - Composer
+        <p class="text-gray-500 dark:text-gray-400">
+            With a strong foundation in PHP and a passion for coding, I have honed my skills in both front-end and back-end development. My experience encompasses a wide range of technologies, including:
         </p>
 
-        <h5 class="text-lg font-bold dark:text-white">
-            {{ __('Installation') }} 
+        @php
+            $temp = [
+                'Backend Development' => 'Proficient in PHP frameworks such as Laravel and Yii, I excel in creating scalable server-side applications and APIs',
+                'Frontend Development' => 'Skilled in HTML, CSS, and JavaScript, I enjoy crafting responsive and user-friendly interfaces that enhance user experience.',
+                'Database Management' => 'Experienced in working with MySQL and other database systems, I ensure data integrity and efficient data retrieval.',
+                'Version Control' => 'Familiar with Git and collaborative workflows, I understand the importance of maintaining clean code and effective collaboration within development teams.'
+            ];
+        @endphp
+
+
+        <ul class="space-y-2 text-gray-500  list-disc list-inside dark:text-gray-400">   
+            @foreach($temp as $key=>$val)
+                <li><b>{{ $key }}:</b> {{ $val }}</li>
+            @endforeach    
+        </ul>
+
+        <h5 class="mt-3 text-lg font-bold dark:text-white">
+            {{ __('What You\'ll Find Here:') }} 
+        </h5>
+
+        @php
+            $temp = [
+                'Diverse Challenges' => 'From algorithm puzzles to full-stack applications, this collection covers a wide range of technical domains.',
+                'Real-World Scenarios' => 'Many of these tests simulate real-world problems, demonstrating practical problem-solving abilities.',
+                'Code Quality' => 'Each project adheres to best practices in coding standards, readability, and efficiency.',
+                'Problem-Solving Approach' => 'Through these tests, you can gain insight into my analytical thinking and how I tackle complex issues.'
+            ]
+        @endphp
+
+        <ul class="space-y-2 text-gray-500  list-disc list-inside dark:text-gray-400">   
+            @foreach($temp as $key=>$val)
+                <li><b>{{ $key }}:</b> {{ $val }}</li>
+            @endforeach    
+        </ul>
+
+        <h5 class="mt-3 text-lg font-bold dark:text-white">
+            {{ __('Navigation:') }} 
+        </h5>
+
+        <p class="text-gray-500 dark:text-gray-400">
+            In the navbar above, you'll find links to each individual test. Feel free to explore them at your leisure. Each link will take you to a dedicated page where you can:<br>
+            - Read about the specific challenge or requirements<br>
+            - View the solution and its implementation<br>
+            - Access the source code (where applicable)<br>
+            - See any additional notes or reflections on the process
+        </p>
+
+        <h5 class="mt-3 text-lg font-bold dark:text-white">
+            {{ __(' Why This Matters:') }} 
         </h5>
         
-        <ol class="space-y-4 text-gray-500  list-disc list-inside dark:text-gray-400">
-            <li>
-                Clone the main repository: 
-                <a href="https://github.com/rayrlam/checkout.git" target="_blank" class="text-blue-600 dark:text-blue-500 hover:underline flex items-center ps-5">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/>
-                    </svg>
-                    <span class="ml-1">
-                        https://github.com/rayrlam/checkout.git
-                    <span>
-                </a>
-                <div class="code-block">
-                    <pre class="code-block-content">
-cd checkout
-                    </pre>
-                </div>
-            </li>
-            <li>
-                Copy the example environment file:
-                <div class="code-block">
-                    <pre class="code-block-content">
-cp .env.example .env
-                    </pre>
-                </div>
-            </li>
-            <li>
-                Install Composer dependencies using Laravel Sail:
-                    <div class="code-block">
-                    <pre class="code-block-content">
-composer require laravel/sail --dev
-php artisan sail:install
-
-                    </pre>
-                </div>
-            </li>
-            <li>
-                Start the Docker containers:
-                <div class="code-block">
-                    <pre class="code-block-content">
-./vendor/bin/sail up -d
-                    </pre>
-                </div>
-            </li>
-            <li>
-                Generate application key:
-                <div class="code-block">
-                    <pre class="code-block-content">
-./vendor/bin/sail artisan key:generate
-                    </pre>
-                </div>
-            </li>
-            <li>
-                Run database migrations:
-                <div class="code-block">
-                    <pre class="code-block-content">
-./vendor/bin/sail artisan migrate
-                    </pre>
-                </div>
-            </li>
-            <li>
-                Run the DataSeeder:
-                <div class="code-block">
-                    <pre class="code-block-content">
-./vendor/bin/sail artisan db:seed --class=DataSeeder
-                    </pre>
-                </div>
-            </li>
-            <li>
-                Install NPM dependencies and build assets:
-                <div class="code-block">
-                    <pre class="code-block-content">
-./vendor/bin/sail npm install
-./vendor/bin/sail npm run dev
-                    </pre>
-                </div>
-            </li>
-            <li>
-                Set up Laravel Dusk:
-                <div class="code-block">
-                    <pre class="code-block-content">
-composer require laravel/dusk --dev
-./vendor/bin/sail artisan dusk:install
-./vendor/bin/sail dusk:chrome-driver
-
-## To get started with Laravel Dusk, uncomment the Selenium service in your application's docker-compose.yml file:
-selenium:
-image: 'selenium/standalone-chrome'
-extra_hosts:
-    - 'host.docker.internal:host-gateway'
-volumes:
-    - '/dev/shm:/dev/shm'
-networks:
-    - sail
-
-## Next, ensure that the laravel.test service in your application's docker-compose.yml file has a depends_on entry for selenium:
-depends_on:
-- mysql
-- redis
-- selenium
-
-                    </pre>
-                </div>
-            </li>
-            <li>
-                Running Tests
-                <div class="code-block">
-                    <pre class="code-block-content">
-### PHPUnit - Run PHPUnit tests with:
-./vendor/bin/sail test
-
-### Laravel Dusk - To run Laravel Dusk tests:
-./vendor/bin/sail dusk
-                    </pre>
-                </div>
-            </li>
-            <li>
-                Development - To start the development server:
-                <div class="code-block">
-                    <pre class="code-block-content">
-./vendor/bin/sail up
-
-### To compile assets:
-./vendor/bin/sail npm run dev
-                    </pre>
-                </div>
-            </li>
-            <li>
-                User Account Setup:
-                <div class="code-block">
-                    <pre class="code-block-content">
-### The DataSeeder has created a default user account. You can use these credentials to log in:
-# Email: johndoe@example.com
-# Password: 12345678
-
-### Alternatively, you can register a new account by visiting the <a href="/register" class="text-blue-600 dark:text-blue-500 hover:underline">/register</a> route in your browser.
-
-### After sign in, you can 
-# Create new item at Create Item page
-# Create new rule at Create Rule page
-                    </pre>
-                </div>
-            </li>
-        </ol>
-
-        <h4 class="text-2xl font-bold dark:text-white mt-3">
-            {{ __('Main Files') }} 
-        </h4>
-
-        <ul class="space-y-4 text-gray-500  list-inside dark:text-gray-400">  
-            <li class="text-indigo-700">
-                App\Http\Controllers\Checkout
-                <div class="ps-5">
-                    - CheckoutController
-                </div>
-            </li>
-            <li class="text-indigo-700">
-                App\Helpers
-                <div class="ps-5">
-                    - CheckoutHelper
-                </div>
-            </li>
-            <li class="text-indigo-700">
-                App\database\seeders
-                <div class="ps-5">
-                    - DataSeeder
-                </div>
-            </li>
-            <li class="text-indigo-700">
-                Tests\Unit
-                <div class="ps-5">
-                    - ChekcoutTest
-                </div>
-            </li>
-            <li class="text-indigo-700">
-                Tests\Browser\Checkout
-                <div class="ps-5">
-                    - RegistrationTest
-                </div>
-            </li>
-            <li class="text-indigo-700">
-                App\Models\Checkout
-                <div class="ps-5">
-                    - Item<br>
-                    - Rule
-                </div>
-            </li>                       
-            <li class="text-indigo-700">
-                Views    
-                <ul class="pl-5 mt-2 space-y-1 list-inside pl-[revert]">
-                    <li>
-                        <a href="{{ route('calculator') }}" class="text-green-500 hover:text-blue-500">
-                            - calculator.blade.php
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('welcome') }}" class="text-green-500 hover:text-blue-500">
-                            - welcome.blade.php
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('crud.create') }}" class="text-green-500 hover:text-blue-500">
-                            - crud.create.blade.php
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('crud.createRule') }}" class="text-green-500 hover:text-blue-500">
-                            - crud.createRule.blade.php
-                        </a>
-                    </li>
-                </ul> 
-            </li>
-        </ul>  
+        <p class="text-gray-500 dark:text-gray-400 mb-2">
+            This collection not only demonstrates my technical capabilities but also reflects my passion for continuous learning and improvement. Each test here represents an opportunity I took to push my boundaries, learn new concepts, or refine existing skills.
+        </p>
+        
+        <p class="text-gray-500 dark:text-gray-400 mb-2">
+            I hope you find this showcase informative and insightful. Whether you're a fellow developer, a potential employer, or just curious about coding challenges, I trust you'll find something of interest here.
+        </p>
+        
+        <p class="text-gray-500 dark:text-gray-400">
+            Feel free to reach out if you have any questions or would like to discuss any of the projects in more detail. Happy exploring!
+        </p>
     </div>        
-</x-supermarket-layout>    
+</x-supermarket-layout>

@@ -13,15 +13,17 @@
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
     </head>
     <body>
-        <!--Nav-->
-        <x-navbar />
 
-        <!--Main-->
+        <x-navbar />
+        
+        @if(isset($links))
+            <x-sub-navbar :links="$links" />
+        @endif
+
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             {{ $slot }}
         </div>
-        <!--Footer-->
-        <x-footer />
 
+        <x-footer />
     </body>
 </html>

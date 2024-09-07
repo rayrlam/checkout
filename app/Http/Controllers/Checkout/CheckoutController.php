@@ -1,19 +1,70 @@
 <?php
 namespace App\Http\Controllers\Checkout;
 
-use Illuminate\Http\Request;
-use App\Models\Checkout\Item;
 use App\Helpers\CheckoutHelper;
 use App\Http\Controllers\Controller as BaseController;
+use App\Models\Checkout\Item;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class CheckoutController extends BaseController
 {  
+    private $links;
+
+    public function __construct() {
+        $this->links =  [
+            'index' => '/tasks/checkout/index',
+            'calculator' => '/tasks/checkout/calculator',
+            'dashboard' => '/dashboard',
+        ];
+    }
+
+    public function index()
+    {
+        $rules = [
+            [
+                'A',
+                50,
+                '3 for 130'
+            ],
+            [
+                'B',
+                30,
+                '2 for 45'
+            ],
+            [
+                'C',
+                20,
+                '2 for 38::3 for 50'
+            ],
+            [
+                'D',
+                15,
+                '5 if purchased with an ‘A’'
+            ],
+            [
+                'E',
+                5,
+                null
+            ]
+        ];
+        View::share('links', $this->links);
+        return view('tasks.checkout.index', compact(['rules']));
+    }
+
     public function calculator()
     {
+        $rules = [
+            ['A','3 for 130'],
+            ['B','2 for 45'],
+            ['C','2 for 38<br/>3 for 50'],
+            ['D','5 if purchased with an ‘A’'],
+        ];
         $items = Item::all();
         $total = 0;
-    
-        return view('calculator',compact(['items', 'total']));
+        View::share('links', $this->links);
+
+        return view('tasks.checkout.calculator',compact(['items', 'total', 'rules']));
     }
 
     public function cal(Request $request)
@@ -25,15 +76,5 @@ class CheckoutController extends BaseController
         }
 
         return back()->with(['items'=>Item::all(), 'total'=>CheckoutHelper::checkout($arr)]);
-    }
-
-    public function simple_test()
-    {
-        $checkout_arr = [
-            ['item_id'=>2, 'qty'=>2],
-            ['item_id'=>1, 'qty'=>6],
-        ];
-
-        return  CheckoutHelper::checkout($checkout_arr); 
     }    
 }

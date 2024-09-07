@@ -1,12 +1,11 @@
 <x-supermarket-layout>
-    <div class="block">
-    
+    <div class="block mt-3">
         <h2 class="font-bold lg:text-3xl text-2xl mt-4 mb-4">
             {{ __('Calculator') }} 
         </h2>
        
         <div class="mt-4">
-            <form method="post" action="{{route('cal')}}">
+            <form method="post" action="{{route('tasks.checkout.cal')}}">
                 @csrf
 
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
@@ -42,10 +41,7 @@
                                         {{ $item->unitprice }}
                                     </td>
                                     <td class="px-6 py-4">
-
                                         <input name="items[{{ $item->id }}]" type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  />
- 
-                                        {{-- <input name="items[{{ $item->id }}]" type="text"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Qty"> --}}
                                     </td>
                                 </tr>
                             @endforeach 
@@ -67,20 +63,9 @@
                         </tbody>
                     </table>
                 </div>
-
                 <button type="submit" class="mt-6 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Go</button>
-
             </form>    
         </div>
-
-        @php
-            $rules = [
-                ['A','3 for 130'],
-                ['B','2 for 45'],
-                ['C','2 for 38<br/>3 for 50'],
-                ['D','5 if purchased with an ‘A’'],
-            ];
-        @endphp
 
         <div class="mt-8">    
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">

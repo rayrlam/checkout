@@ -8,14 +8,12 @@ use Illuminate\View\Component;
 
 class SubNavbar extends Component
 {
-    public $links;
-
     /**
      * Create a new component instance.
      */
     public function __construct($links)
     {
-        $this->links = $links;
+        // 
     }
 
     /**

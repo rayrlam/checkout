@@ -20,22 +20,18 @@ Route::middleware(['throttle:60,1'])->group(function () {
         return view('welcome');
     })->name('welcome');
 
-    Route::get('/checkout/index', function(){
-        return view('welcome');
-    })->name('welcome');
-    
-    Route::get('/checkout/calculator', [CheckoutController::class, 'calculator'])->name('calculator');
-    Route::get('/simple_test', [CheckoutController::class, 'simple_test'])->name('simple_test');
-    Route::post('/cal', [CheckoutController::class, 'cal'])->name('cal');
+    Route::get('/tasks/checkout/index', [CheckoutController::class, 'index'])->name('tasks.checkout.index');
+    Route::get('/tasks/checkout/calculator', [CheckoutController::class, 'calculator'])->name('tasks.checkout.calculator');
+    Route::post('/tasks/checkout/cal', [CheckoutController::class, 'cal'])->name('tasks.checkout.cal');
 });
 
 Route::middleware(['auth', 'throttle:60,1'])->group(function () {
     Route::get('/dashboard', [CrudController::class, 'index'])->name('dashboard');
-    Route::get('/checkout/create', [CrudController::class, 'create'])->name('crud.create');
-    Route::get('/checkout/createRule', [CrudController::class, 'createRule'])->name('crud.createRule');
-    Route::get('/checkout/itemsearch', [CrudController::class, 'itemsearch'])->name('crud.itemsearch');
-    Route::post('/checkout/storerule', [CrudController::class, 'storerule'])->name('crud.storerule');
-    Route::post('/checkout/store', [CrudController::class, 'store'])->name('crud.store');
+    Route::get('/tasks/checkout/create', [CrudController::class, 'create'])->name('tasks.checkout.crud.create');
+    Route::get('/tasks/checkout/createRule', [CrudController::class, 'createRule'])->name('tasks.checkout.crud.createRule');
+    Route::get('/tasks/checkout/itemsearch', [CrudController::class, 'itemsearch'])->name('tasks.checkout.crud.itemsearch');
+    Route::post('/tasks/checkout/storerule', [CrudController::class, 'storerule'])->name('tasks.checkout.crud.storerule');
+    Route::post('/tasks/checkout/store', [CrudController::class, 'store'])->name('tasks.checkout.crud.store');
 });
 
 require __DIR__.'/auth.php';
