@@ -11,7 +11,6 @@
                   </svg>
                   <span class="sr-only">GitHub account</span>
               </a>
-           
           </div>
       </div>
     </div>

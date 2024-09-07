@@ -2,3 +2,26 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'flowbite/dist/flowbite.css';
+
+@layer base {
+    ul.list-disc {
+        margin: revert;
+        padding-left: revert;
+    }
+}
+
+@layer components {
+    .code-block {
+        @apply bg-gray-100 dark:bg-gray-800 rounded-lg px-2 py-2 font-mono text-sm overflow-x-auto;
+    }
+
+    .code-block-header {
+        @apply bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-2 rounded-t-lg font-sans font-bold;
+    }
+
+ 
+
+    .code-comment {
+        @apply text-green-600 dark:text-green-400;
+    }
+}

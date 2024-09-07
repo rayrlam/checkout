@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   content: [
     "./resources/**/*.blade.php",
@@ -5,7 +7,20 @@ module.exports = {
     "./node_modules/flowbite/**/*.js"
   ],
   theme: {
-    extend: {},
+    extend: {
+      // You can add custom theme extensions here
+    },
   },
-  plugins: [require('flowbite/plugin')],
-}  
+  plugins: [
+    require('flowbite/plugin'),
+    plugin(function({ addBase, theme }) {
+      addBase({
+        'ul.list-disc': { 
+          margin: 'revert', 
+          paddingLeft: 'revert' 
+        },
+        // You can add more element styles here
+      })
+    })
+  ],
+}
