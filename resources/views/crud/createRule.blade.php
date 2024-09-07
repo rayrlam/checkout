@@ -12,7 +12,7 @@
                     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
        
-                    <form method="post" action="{{route('crud.storerule')}}">
+                    <form method="post" action="{{route('tasks.checkout.crud.storerule')}}">
                         @csrf
 
                         <input name="itemid" id="id1" type="hidden" value="" />
@@ -84,7 +84,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" integrity="sha512-HWlJyU4ut5HkEj0QsK/IxBCY55n5ZpskyjVlAoV9Z7XQwwkqXoYdCIC93/htL3Gu5H3R4an/S0h2NXfbZk3g7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <script>
-            var path = '{{ route('crud.itemsearch') }}';
+            var path = '{{ route('tasks.checkout.crud.itemsearch') }}';
 
             $('#Auto1').typeahead({
                 source:function(terms,process){

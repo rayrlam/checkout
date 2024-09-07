@@ -1,4 +1,4 @@
-<x-supermarket-layout>
+<x-home>
     <div class="block mt-3">
         <h3 class="text-3xl font-bold dark:text-white">
             {{ __('Welcome to My ')}} <span class="text-green-600">{{  __('Technical Test') }}</span> {{  __(' Showcase') }} 
@@ -79,4 +79,4 @@
             Feel free to reach out if you have any questions or would like to discuss any of the projects in more detail. Happy exploring!
         </p>
     </div>        
-</x-supermarket-layout>
+</x-home>

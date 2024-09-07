@@ -16,11 +16,11 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('crud.create')" :active="request()->routeIs('crud.create')">
+                    <x-nav-link :href="route('tasks.checkout.crud.create')" :active="request()->routeIs('tasks.checkout.crud.create')">
                         {{ __('Create Item') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('crud.createRule')" :active="request()->routeIs('crud.createRule')">
+                    <x-nav-link :href="route('tasks.checkout.crud.createRule')" :active="request()->routeIs('tasks.checkout.crud.createRule')">
                         {{ __('Create Rule') }}
                     </x-nav-link>
                 </div>
@@ -75,11 +75,11 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('crud.create')" :active="request()->routeIs('crud.create')">
+            <x-responsive-nav-link :href="route('tasks.checkout.crud.create')" :active="request()->routeIs('tasks.checkout.crud.create')">
                 {{ __('Create Item') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('crud.createRule')" :active="request()->routeIs('crud.createRule')">
+            <x-responsive-nav-link :href="route('tasks.checkout.crud.createRule')" :active="request()->routeIs('tasks.checkout.crud.createRule')">
                 {{ __('Create Rule') }}
             </x-responsive-nav-link>
         </div>

@@ -1,4 +1,4 @@
-<x-supermarket-layout>
+<x-home>
     <div class="block mt-3">
         <h3 class="text-3xl font-bold dark:text-white">
             {{ __('Checkout') }} 
@@ -322,4 +322,4 @@ depends_on:
             </li>                       
         </ul>  
     </div>        
-</x-supermarket-layout>    
+</x-home>    

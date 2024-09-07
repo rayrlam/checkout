@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class SupermarketLayout extends Component
+class CheckoutLayout extends Component
 {
     /**
      * Get the view / contents that represents the component.
@@ -13,6 +13,6 @@ class SupermarketLayout extends Component
      */
     public function render()
     {
-        return view('layouts.supermarket');
+        return view('layouts.app');
     }
 }

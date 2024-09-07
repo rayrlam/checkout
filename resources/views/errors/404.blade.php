@@ -1,4 +1,4 @@
-<x-supermarket-layout>
+<x-app-layout>
     <link href="{{ asset('css/404.css')}}" rel="stylesheet">    
     <div class="main py-20">
         <a href="{{ route('welcome') }}"> 
@@ -46,4 +46,4 @@
             </svg>
         </a>
     </div>
-</x-supermarket-layout>
+</x-app-layout>

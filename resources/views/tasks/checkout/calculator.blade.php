@@ -1,4 +1,4 @@
-<x-supermarket-layout>
+<x-home>
     <div class="block mt-3">
         <h2 class="font-bold lg:text-3xl text-2xl mt-4 mb-4">
             {{ __('Calculator') }} 
@@ -147,4 +147,4 @@
             </ul>
         </div>
     </div>
-</x-supermarket-layout>
+</x-home>
