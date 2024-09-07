@@ -20,18 +20,22 @@ Route::middleware(['throttle:60,1'])->group(function () {
         return view('welcome');
     })->name('welcome');
 
+    Route::get('/checkout/index', function(){
+        return view('welcome');
+    })->name('welcome');
+    
+    Route::get('/checkout/calculator', [CheckoutController::class, 'calculator'])->name('calculator');
     Route::get('/simple_test', [CheckoutController::class, 'simple_test'])->name('simple_test');
-    Route::get('/calculator', [CheckoutController::class, 'calculator'])->name('calculator');
     Route::post('/cal', [CheckoutController::class, 'cal'])->name('cal');
 });
 
 Route::middleware(['auth', 'throttle:60,1'])->group(function () {
     Route::get('/dashboard', [CrudController::class, 'index'])->name('dashboard');
-    Route::get('/create', [CrudController::class, 'create'])->name('crud.create');
-    Route::get('/createRule', [CrudController::class, 'createRule'])->name('crud.createRule');
-    Route::get('/itemsearch', [CrudController::class, 'itemsearch'])->name('crud.itemsearch');
-    Route::post('/storerule', [CrudController::class, 'storerule'])->name('crud.storerule');
-    Route::post('/store', [CrudController::class, 'store'])->name('crud.store');
+    Route::get('/checkout/create', [CrudController::class, 'create'])->name('crud.create');
+    Route::get('/checkout/createRule', [CrudController::class, 'createRule'])->name('crud.createRule');
+    Route::get('/checkout/itemsearch', [CrudController::class, 'itemsearch'])->name('crud.itemsearch');
+    Route::post('/checkout/storerule', [CrudController::class, 'storerule'])->name('crud.storerule');
+    Route::post('/checkout/store', [CrudController::class, 'store'])->name('crud.store');
 });
 
 require __DIR__.'/auth.php';

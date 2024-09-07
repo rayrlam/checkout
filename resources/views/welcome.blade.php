@@ -27,9 +27,17 @@
                 null
             ]
         ];
+
+        $links = [
+            'home' => 'checkout/index',
+            'calculator' => 'checkout/calculator',
+            'dashboard' => 'dashboard',
+        ];
     @endphp
 
-    <div class="block">
+    <x-sub-navbar :links="$links" />
+
+    <div class="block mt-3">
         <h3 class="text-3xl font-bold dark:text-white">
             {{ __('Checkout') }} 
         </h3>
