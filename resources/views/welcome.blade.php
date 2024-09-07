@@ -145,7 +145,7 @@
             </ul>
         </div>
     
-        <h4 class="text-2xl font-bold dark:text-white">
+        <h4 class="text-2xl font-bold dark:text-white mt-3">
             {{ __('Setup') }} 
         </h4>
 
