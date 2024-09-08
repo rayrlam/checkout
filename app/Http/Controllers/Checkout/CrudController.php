@@ -75,9 +75,8 @@ class CrudController extends BaseController
      */
     public function createRule()
     {   
-        return view('crud.createRule');
+        return view('tasks.checkout.crud.createRule');
     }
-
 
     /**
      * Show the form for creating a new Item.
@@ -86,7 +85,7 @@ class CrudController extends BaseController
      */
     public function create()
     {
-        return view('crud.create');
+        return view('tasks.checkout.crud.create');
     }
 
     /**
