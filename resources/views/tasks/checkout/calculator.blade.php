@@ -1,13 +1,26 @@
 <x-home>
-    <div class="block mt-3">
+    <div>
         <h2 class="font-bold lg:text-xl text-2xl mt-4 mb-4">
             {{ __('Calculator') }} 
         </h2>
        
         <div class="mt-4">
-            <form method="post" action="{{route('tasks.checkout.cal')}}">
-                @csrf
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>
+                                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                    <span class="font-medium"> {{ $error }}</span>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
+            <form method="post" action="{{route('tasks.checkout.cal')}}" id="calculator_form">
+                @csrf
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
                     <table class="w-full text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -64,7 +77,9 @@
                     </table>
                 </div>
                 <button type="submit" class="mt-6 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Go</button>
-            </form>    
+            </form>
+
+            <div id="errorMessages" class="alert alert-danger" style="display: none;">    
         </div>
 
         <div class="mt-8">    

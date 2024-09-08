@@ -5,6 +5,7 @@ use App\Helpers\CheckoutHelper;
 use App\Http\Controllers\Controller as BaseController;
 use App\Models\Checkout\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 
 class CheckoutController extends BaseController
@@ -69,6 +70,24 @@ class CheckoutController extends BaseController
 
     public function cal(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'items.*' => [
+                'nullable',
+                function ($attribute, $value, $fail) {
+                    if ($value !== null && !is_numeric($value)) {
+                        $fail("The $attribute must be a number.");
+                    }
+                    if (is_numeric($value) && $value <= 0) {
+                        $fail("The $attribute must be greater than 0.");
+                    }
+                },
+            ],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $arr = [];
         foreach($request->input('items') as $id=>$val)
         {
