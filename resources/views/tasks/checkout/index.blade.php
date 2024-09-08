@@ -194,10 +194,10 @@ php artisan sail:install
                 </div>
             </li>
             <li class="md:text-sm text-xs">
-                Run the DataSeeder:
+                Run the Seeder:
                 <div class="code-block">
                     <pre class="code-block-content">
-./vendor/bin/sail artisan db:seed --class=DataSeeder
+./vendor/bin/sail artisan db:seed --class=CheckoutSeeder
                     </pre>
                 </div>
             </li>

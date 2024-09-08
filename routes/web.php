@@ -20,6 +20,10 @@ Route::middleware(['throttle:60,1'])->group(function () {
         return view('welcome');
     })->name('welcome');
 
+    Route::get('/tasks/quotation/index', function () {
+        return view('tasks.quotation.index');
+    })->name('tasks.quotation.index');
+
     Route::get('/tasks/checkout/index', [CheckoutController::class, 'index'])->name('tasks.checkout.index');
     Route::get('/tasks/checkout/calculator', [CheckoutController::class, 'calculator'])->name('tasks.checkout.calculator');
     Route::post('/tasks/checkout/cal', [CheckoutController::class, 'cal'])->name('tasks.checkout.cal');

@@ -22,7 +22,7 @@ class Navbar extends Component
     public function render(): View|Closure|string
     {
         $dropdown = [
-            // 'quotation' => 'taskes.quotation.index',
+            'quotation' => 'tasks.quotation.index',
             'checkout' => [
                 'index' => 'tasks.checkout.index',
                 'calculator' => 'tasks.checkout.calculator',
