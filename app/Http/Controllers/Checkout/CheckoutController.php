@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\View;
 class CheckoutController extends BaseController
 {  
     private $links;
+    private $title = 'Checkout';
 
     public function __construct() {
         $this->links =  [
@@ -49,8 +50,9 @@ class CheckoutController extends BaseController
                 null
             ]
         ];
+        $title = $this->title;
         View::share('links', $this->links);
-        return view('tasks.checkout.index', compact(['rules']));
+        return view('tasks.checkout.index', compact(['rules','title']));
     }
 
     public function calculator()
@@ -64,8 +66,8 @@ class CheckoutController extends BaseController
         $items = Item::all();
         $total = 0;
         View::share('links', $this->links);
-
-        return view('tasks.checkout.calculator',compact(['items', 'total', 'rules']));
+        $title = $this->title;
+        return view('tasks.checkout.calculator',compact(['items', 'total', 'rules', 'title']));
     }
 
     public function cal(Request $request)

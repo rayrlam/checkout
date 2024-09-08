@@ -1,4 +1,7 @@
 <x-home>
+    <x-slot name="title">
+        Quotation
+    </x-slot>
     <div class="block">
         <h3 class="text-xl font-bold dark:text-white">
             {{ __('Quotation') }} 

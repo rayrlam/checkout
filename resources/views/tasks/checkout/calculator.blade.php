@@ -1,4 +1,7 @@
 <x-home>
+    <x-slot name="title">
+        {{ $title ?? null }}
+    </x-slot>
     <x-slot name="styles">
         <style>
             .alert-danger {

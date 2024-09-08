@@ -1,4 +1,7 @@
 <x-home>
+    <x-slot name="title">
+        TestingPlayground
+    </x-slot>
     <div class="block mt-3">
         <h3 class="text-xl font-bold dark:text-white">
             {{ __('Welcome to My ')}} <span class="text-green-600">{{  __('Technical Test') }}</span> {{  __(' Showcase') }} 
