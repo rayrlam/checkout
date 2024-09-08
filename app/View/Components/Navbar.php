@@ -21,6 +21,15 @@ class Navbar extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.navbar');
+        $dropdown = [
+            'checkout' => [
+                'index' => 'tasks.checkout.index',
+                'calculator' => 'tasks.checkout.calculator',
+                'register' => 'register',
+                'login' => 'login',
+            ]
+        ];
+
+        return view('components.navbar', compact('dropdown'));
     }
 }
