@@ -188,61 +188,81 @@
 
     <x-slot name="scripts">
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const form = document.getElementById('calculator_form');
-                const errorDiv = document.getElementById('errorMessages');
-                const errors = {};
+           document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('calculator_form');
+    const errorDiv = document.getElementById('errorMessages');
+    const submitButton = form.querySelector('button[type="submit"]');
+    const errors = {};
 
-                function validateInput(input) {
-                    const value = input.value.trim();
-                    if (value === '') return true; // Allow empty values
-                    if (isNaN(value)) return 'Must be a number';
-                    if (parseFloat(value) <= 0) return 'Must be greater than 0';
-                    return true;
-                }
+    function validateInput(input) {
+        const value = input.value.trim();
+        if (value === '') return 'empty';
+        if (isNaN(value)) return 'Must be a number';
+        if (parseFloat(value) <= 0) return 'Must be greater than 0';
+        return true;
+    }
 
-                function updateErrorDisplay() {
-                    errorDiv.innerHTML = '';
-                    const errorMessages = Object.values(errors).flat();
-                    if (errorMessages.length > 0) {
-                        errorMessages.forEach(error => {
-                            const p = document.createElement('p');
-                            p.textContent = error;
-                            errorDiv.appendChild(p);
-                        });
-                        errorDiv.style.display = 'block';
-                    } else {
-                        errorDiv.style.display = 'none';
-                    }
-                }
-
-                function handleInputValidation(input) {
-                    const result = validateInput(input);
-                    if (result !== true) {
-                        errors[input.name] = [`${input.name}: ${result}`];
-                    } else {
-                        delete errors[input.name];
-                    }
-                    updateErrorDisplay();
-                }
-
-                form.addEventListener('input', function(e) {
-                    if (e.target.name.startsWith('items[')) {
-                        handleInputValidation(e.target);
-                    }
-                });
-
-                form.addEventListener('submit', function(e) {
-                    form.querySelectorAll('input[name^="items["]').forEach(input => {
-                        handleInputValidation(input);
-                    });
-
-                    if (Object.keys(errors).length > 0) {
-                        e.preventDefault(); // Prevent form submission
-                        updateErrorDisplay();
-                    }
-                });
+    function updateErrorDisplay() {
+        errorDiv.innerHTML = '';
+        const errorMessages = Object.values(errors).flat();
+        if (errorMessages.length > 0) {
+            errorMessages.forEach(error => {
+                const p = document.createElement('p');
+                p.textContent = error;
+                errorDiv.appendChild(p);
             });
+            errorDiv.style.display = 'block';
+            submitButton.disabled = true;
+        } else {
+            errorDiv.style.display = 'none';
+            submitButton.disabled = false;
+        }
+    }
+
+    function handleInputValidation(input) {
+        const result = validateInput(input);
+        if (result !== true) {
+            if (result !== 'empty') {
+                errors[input.name] = [`${input.name}: ${result}`];
+            } else {
+                delete errors[input.name];
+            }
+        } else {
+            delete errors[input.name];
+        }
+        
+        // Remove the "At least one input must have a value" error if any input has a value
+        if (input.value.trim() !== '') {
+            delete errors['form'];
+        }
+        
+        updateErrorDisplay();
+    }
+
+    form.addEventListener('input', function(e) {
+        if (e.target.name.startsWith('items[')) {
+            handleInputValidation(e.target);
+        }
+    });
+
+    form.addEventListener('submit', function(e) {
+        let allEmpty = true;
+        form.querySelectorAll('input[name^="items["]').forEach(input => {
+            handleInputValidation(input);
+            if (input.value.trim() !== '') {
+                allEmpty = false;
+            }
+        });
+
+        if (Object.keys(errors).length > 0 || allEmpty) {
+            e.preventDefault(); // Prevent form submission
+            if (allEmpty) {
+                errors['form'] = ['At least one input must have a value'];
+            }
+            updateErrorDisplay();
+        }
+    });
+});
         </script>
     </x-slot>
 </x-home>
