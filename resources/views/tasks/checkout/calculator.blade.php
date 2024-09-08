@@ -1,4 +1,27 @@
 <x-home>
+    <x-slot name="styles">
+        <style>
+            .alert-danger {
+                color: #721c24;
+                background-color: #f8d7da;
+                border-color: #f5c6cb;
+                padding: .75rem 1.25rem;
+                margin-bottom: 1rem;
+                border: 1px solid transparent;
+                border-radius: .25rem;
+            }
+
+            #errorMessages p {
+                margin: 5px 0;
+            }
+
+            #errorMessages p:not(:last-child) {
+                border-bottom: 1px solid #dc3545;
+                padding-bottom: 5px;
+            }
+        </style>
+    </x-slot>
+
     <div>
         <h2 class="font-bold lg:text-xl text-2xl mt-4 mb-4">
             {{ __('Calculator') }} 
@@ -162,4 +185,64 @@
             </ul>
         </div>
     </div>
+
+    <x-slot name="scripts">
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const form = document.getElementById('calculator_form');
+                const errorDiv = document.getElementById('errorMessages');
+                const errors = {};
+
+                function validateInput(input) {
+                    const value = input.value.trim();
+                    if (value === '') return true; // Allow empty values
+                    if (isNaN(value)) return 'Must be a number';
+                    if (parseFloat(value) <= 0) return 'Must be greater than 0';
+                    return true;
+                }
+
+                function updateErrorDisplay() {
+                    errorDiv.innerHTML = '';
+                    const errorMessages = Object.values(errors).flat();
+                    if (errorMessages.length > 0) {
+                        errorMessages.forEach(error => {
+                            const p = document.createElement('p');
+                            p.textContent = error;
+                            errorDiv.appendChild(p);
+                        });
+                        errorDiv.style.display = 'block';
+                    } else {
+                        errorDiv.style.display = 'none';
+                    }
+                }
+
+                function handleInputValidation(input) {
+                    const result = validateInput(input);
+                    if (result !== true) {
+                        errors[input.name] = [`${input.name}: ${result}`];
+                    } else {
+                        delete errors[input.name];
+                    }
+                    updateErrorDisplay();
+                }
+
+                form.addEventListener('input', function(e) {
+                    if (e.target.name.startsWith('items[')) {
+                        handleInputValidation(e.target);
+                    }
+                });
+
+                form.addEventListener('submit', function(e) {
+                    form.querySelectorAll('input[name^="items["]').forEach(input => {
+                        handleInputValidation(input);
+                    });
+
+                    if (Object.keys(errors).length > 0) {
+                        e.preventDefault(); // Prevent form submission
+                        updateErrorDisplay();
+                    }
+                });
+            });
+        </script>
+    </x-slot>
 </x-home>

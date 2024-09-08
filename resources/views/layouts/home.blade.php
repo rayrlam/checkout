@@ -12,8 +12,7 @@
   
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
 
-        
- 
+        {{ $styles ?? '' }}
     </head>
     <body class="flex flex-col min-h-screen">
         <x-navbar />
@@ -27,6 +26,7 @@
         </main>
 
         <x-footer />
- 
+
+        {{ $scripts ?? '' }}
     </body>
 </html>

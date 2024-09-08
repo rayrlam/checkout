@@ -1,10 +1,10 @@
 <x-home>
     <div class="block mt-3">
-        <h3 class="text-3xl font-bold dark:text-white">
+        <h3 class="text-xl font-bold dark:text-white">
             {{ __('Welcome to My ')}} <span class="text-green-600">{{  __('Technical Test') }}</span> {{  __(' Showcase') }} 
         </h3>
                 
-        <p class="text-gray-500 dark:text-gray-400">
+        <p class="text-gray-500 dark:text-gray-400 md:">
             Hello and welcome! My name is Ray Lam, and I am a full-stack PHP web developer with many years of experience in building dynamic and robust web applications. This site serves as a portfolio of various technical tests and coding challenges I've completed. Each project here represents a unique problem-solving journey, showcasing different aspects of my programming skills and approach to software development.
         </p>
 
