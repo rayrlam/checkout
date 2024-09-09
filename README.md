@@ -18,7 +18,7 @@ This repository of testing playground contains multiple submodules, including th
 
 - Clone the repository with submodules:
 ```
-    git clone --recurse-submodules https://github.com/your-username/testing-playground.git
+    git clone --recurse-submodules https://github.com/rayrlam/testing-playground.git
 
     cd testing-playground
 ```
