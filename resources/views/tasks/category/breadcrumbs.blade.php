@@ -1,4 +1,4 @@
-<x-category-layout>
+<x-home>
     <x-slot name="header">
         <div class="flex justify-center sm:justify-start sm:pt-0">
             <h1 class="">
@@ -14,4 +14,4 @@
             @endif
         </div>
     </div>
-</x-category-layout>
+</x-home>

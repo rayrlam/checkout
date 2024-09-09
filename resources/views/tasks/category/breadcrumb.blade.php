@@ -1,4 +1,4 @@
-<x-category-layout>
+<x-home>
     
     <div class="p-8 w-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div class="flex" style="justify-content:space-between; align-items:baseline">
@@ -7,7 +7,7 @@
             </h2>
         </div>    
         <div class="mt-4">
-            <form method="post" action="{{route('breadcrumbs')}}">
+            <form method="post" action="{{route('tasks.category.breadcrumbs')}}">
                 @csrf
                 <div class="bg-white">
                     <div class="p-6 md:p-10">
@@ -36,4 +36,4 @@
             </form>
         </div>
     </div>
-</x-category-layout>
+</x-home>

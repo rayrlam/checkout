@@ -1,4 +1,4 @@
-<x-category-layout>
+<x-home>
     <div class="p-8 w-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div class="flex" style="justify-content:space-between; align-items:baseline">
             <h2 class="font-bold lg:text-3xl text-2xl mt-4 mb-4">
@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <form class="ml-4 mt-8" method="post" action="{{route('categories')}}">
+        <form class="ml-4 mt-8" method="post" action="{{route('tasks.category.categories')}}">
             @csrf
             <p class="mt-6 mb-2">
                 Category Parent Id
@@ -51,4 +51,4 @@
             </div>
         </form>
     </div>
-</x-category-layout>
+</x-home>

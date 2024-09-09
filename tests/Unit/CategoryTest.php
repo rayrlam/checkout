@@ -37,8 +37,7 @@ class CategoryTest extends TestCase
         $b8 = CategoryHelper::breadcrumb(8);
         $b5 = CategoryHelper::breadcrumb(5, "/tasks/category/index");
 
-        $view = $this->view('welcome', ['breadcrumbs'=>[$b8,$b5], 'list'=>$list]);
-        $view->assertSee('Welcome');
+        $view = $this->view('tasks.category.index', ['breadcrumbs'=>[$b8,$b5], 'list'=>$list]);
         $view->assertSee('Clothing');
         $view->assertSee('Men');
         $view->assertSee('T-Shirts');
@@ -51,7 +50,7 @@ class CategoryTest extends TestCase
         $withUrl = true;
         $breadcrumbs = CategoryHelper::breadcrumb($id, $sep, $withUrl);
 
-        $view = $this->view('breadcrumbs', compact(['breadcrumbs']));
+        $view = $this->view('tasks.category.index', compact(['breadcrumbs']));
         $view->assertSee('Clothing');
         $view->assertSee('Men');
         $view->assertSee('T-Shirts');
@@ -63,7 +62,7 @@ class CategoryTest extends TestCase
         $categories = CategoryRepository::categories($id);
         $pid = CategoryRepository::pid();
 
-        $view = $this->view('categories', compact(['categories', 'id', 'pid']));;
+        $view = $this->view('tasks.category.categories', compact(['categories', 'id', 'pid']));;
         $view->assertSee('Clothing');
         $view->assertSee('Accessories');
         $view->assertSee('Watches');
