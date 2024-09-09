@@ -13,7 +13,6 @@ class QuotationSeeder extends Seeder
      */
     public function run()
     {
-  
         DB::table('abicodes')->insert([
             [
                 'abi_code' => '22529902',

@@ -53,5 +53,15 @@ This repository of testing playground contains multiple submodules, including th
 - Run migrations:
 ```
     ./vendor/bin/sail artisan migrate
+    ./vendor/bin/sail artisan db:seed
+```
+### Testing
+- Laravel Dusk
+```
+    ./vendor/bin/sail dusk
+```
+- PHPUnit
+```
+    ./vendor/bin/sail test
 ```
 - Access the Laravel application at `http://127.0.0.1/`

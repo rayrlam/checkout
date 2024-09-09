@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 class CheckoutSeeder extends Seeder
 {
@@ -16,14 +14,6 @@ class CheckoutSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-                'name' => 'John Doe',
-                'email' => 'johndoe@example.com',
-                'password' => Hash::make('12345678'),
-                'remember_token' => Str::random(10),
-            ]
-        );
-
         DB::table('items')->insert([
             'name' => 'A',
             'unitprice' => '50',
@@ -88,31 +78,5 @@ class CheckoutSeeder extends Seeder
             'sprice'=>5.00,
             'eprice'=>5.000000
         ]);
-
-        // create below rules for testing
-
-        // DB::table('rules')->insert([
-        //     'item_id' => 4,
-        //     'method'=>0,
-        //     'qtyorid'=>5,
-        //     'sprice'=>20,
-        //     'eprice'=>4.000000
-        // ]);
-
-        // DB::table('rules')->insert([
-        //     'item_id' => 4,
-        //     'method'=>0,
-        //     'qtyorid'=>3,
-        //     'sprice'=>27,
-        //     'eprice'=>9.000000
-        // ]);
-
-        // DB::table('rules')->insert([
-        //     'item_id' => 4,
-        //     'method'=>0,
-        //     'qtyorid'=>2,
-        //     'sprice'=>20,
-        //     'eprice'=>10.000000
-        // ]);
     }
 }

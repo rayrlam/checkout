@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Checkout\CrudController;
 use App\Http\Controllers\Checkout\CheckoutController;
+use App\Http\Controllers\Category\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,13 @@ Route::middleware(['throttle:60,1'])->group(function () {
     Route::get('/tasks/quotation/index', function () {
         return view('tasks.quotation.index');
     })->name('tasks.quotation.index');
+
+    Route::get('/tasks/category/index', [CategoryController::class, 'index'])->name('tasks.category.index');
+    Route::match(['get', 'post'], '/tasks/category/categories', [CategoryController::class,'categories'])->name('tasks.category.categories');
+    Route::get('/tasks/category/category/{id}', [CategoryController::class, 'category']);
+    Route::get('/tasks/category/breadcrumb', [CategoryController::class, 'breadcrumb'])->name('tasks.category.breadcrumb');
+    Route::post('/tasks/category/breadcrumbs', [CategoryController::class, 'breadcrumbs'])->name('tasks.category.breadcrumbs');
+
 
     Route::get('/tasks/checkout/index', [CheckoutController::class, 'index'])->name('tasks.checkout.index');
     Route::get('/tasks/checkout/calculator', [CheckoutController::class, 'calculator'])->name('tasks.checkout.calculator');
