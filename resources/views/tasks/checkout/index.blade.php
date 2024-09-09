@@ -18,7 +18,6 @@
 
         <p class="text-gray-500 dark:text-gray-400 md:text-sm text-xs">
             For example, item ‘A’ might cost <b>£0.50</b> individually, but this week we have a special offer: buy three ‘A’s and they’ll cost you <b>£1.30</b>. 
-
         </p>
 
         <p class="text-gray-500 dark:text-gray-400 mt-3 md:text-sm text-xs">
@@ -256,7 +255,7 @@ depends_on:
                 Development - To start the development server:
                 <div class="code-block">
                     <pre class="code-block-content">
-./vendor/bin/sail up
+./vendor/bin/sail up -d
 
 ### To compile assets:
 ./vendor/bin/sail npm run dev
