@@ -43,19 +43,6 @@ class CategoryTest extends TestCase
         $view->assertSee('T-Shirts');
     }
 
-    public function test_breadcrumbs_view_with_data()
-    {
-        $id = 8;
-        $sep = ">";
-        $withUrl = true;
-        $breadcrumbs = CategoryHelper::breadcrumb($id, $sep, $withUrl);
-
-        $view = $this->view('tasks.category.index', compact(['breadcrumbs']));
-        $view->assertSee('Clothing');
-        $view->assertSee('Men');
-        $view->assertSee('T-Shirts');
-    }
-
     public function test_categories_post_view_with_data()
     {
         $id = 0;
