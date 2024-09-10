@@ -46,7 +46,7 @@
                             </tr>
                         @empty
                             <tr class="bg-white dark:bg-gray-900  border-b dark:border-gray-700">
-                                <td colspan="3">Category Not Found</td>
+                                <td colspan="3" class="p-2 text-xs">Category Not Found</td>
                             </tr>
                         @endforelse    
                     </tbody>
@@ -56,7 +56,7 @@
 
         <form class="ml-4 mt-8" method="post" action="{{route('tasks.category.categories')}}">
             @csrf
-            <p class="mt-6 mb-2 text-sm">
+            <p class="mt-6 mb-2 text-xs">
                 Category Parent Id
             </p>
             <select name="id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
