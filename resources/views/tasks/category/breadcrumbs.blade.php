@@ -1,14 +1,13 @@
 <x-home>
-    <x-slot name="header">
-        <div class="flex justify-center sm:justify-start sm:pt-0">
-            <h1 class="">
-                {{ __('Breadcrumbs') }}    
-            </h1>
-        </div>
+    <x-slot name="title">
+        {{ $title ?? null }}
     </x-slot>
+    <div class="block">  
+        <h3 class="text-lg font-bold dark:text-white">
+            {{ __('Breadcrumbs') }}
+        </h3>
 
-    <div class="p-8 w-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-        <div class="mt-4">
+        <div class="mt-3 p-4 w-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             @if(isset($breadcrumbs))
                 <x-breadcrumb :breadcrumbs="$breadcrumbs" />
             @endif
