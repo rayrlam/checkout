@@ -199,7 +199,7 @@ php artisan sail:install
                 Run the Seeder:
                 <div class="code-block">
                     <pre class="code-block-content">
-./vendor/bin/sail artisan db:seed --class=CheckoutSeeder
+./vendor/bin/sail artisan db:seed
                     </pre>
                 </div>
             </li>
@@ -240,6 +240,17 @@ depends_on:
                 </div>
             </li>
             <li class="md:text-sm text-xs">
+                Development - To start the development server:
+                <div class="code-block">
+                    <pre class="code-block-content">
+./vendor/bin/sail up -d
+
+### To compile assets:
+./vendor/bin/sail npm run dev
+                    </pre>
+                </div>
+            </li>
+            <li class="md:text-sm text-xs">
                 Running Tests
                 <div class="code-block">
                     <pre class="code-block-content">
@@ -248,17 +259,6 @@ depends_on:
 
 ### Laravel Dusk - To run Laravel Dusk tests:
 ./vendor/bin/sail dusk
-                    </pre>
-                </div>
-            </li>
-            <li class="md:text-sm text-xs">
-                Development - To start the development server:
-                <div class="code-block">
-                    <pre class="code-block-content">
-./vendor/bin/sail up -d
-
-### To compile assets:
-./vendor/bin/sail npm run dev
                     </pre>
                 </div>
             </li>

@@ -48,14 +48,14 @@
         </p>
 
         <p class="mb-3 text-gray-500 md:text-sm text-xs dark:text-gray-400">
-                For example. If I supplied 8 as the category id and ‘>’ as the separator I would expect the result to be:
+            For example. If I supplied 8 as the category id and ‘>’ as the separator I would expect the result to be:
         </p>
 
         <p class="mb-3 text-gray-500 md:text-sm text-xs dark:text-gray-400">
             <x-breadcrumb :breadcrumbs="$breadcrumbs['0']" /> 
         </p>
 
-         <p class="mb-3 text-gray-500 md:text-sm text-xs dark:text-gray-400">
+        <p class="mt-3 mb-3 text-gray-500 md:text-sm text-xs dark:text-gray-400">
             If I supplied 5 as the category id and ‘/’ as the separator I would expect the result to be:
         </p>
 
@@ -63,7 +63,7 @@
             <x-breadcrumb :breadcrumbs="$breadcrumbs['1']" />
         </p>
 
-        <p class="mb-3 text-gray-500 md:text-sm text-xs dark:text-gray-400">
+        <p class="mt-3 mb-3 text-gray-500 md:text-sm text-xs dark:text-gray-400">
             For the purposes of this exercise assume you have a function called getCategory($id) available to 
             supply you with an array of the category values when the category id is passed in.
         </p>
@@ -82,7 +82,7 @@ Array(
             </pre>
         </div>
 
-<h4 class="text-xl font-bold dark:text-white mt-3">
+<h4 class="text-xl font-bold dark:text-white mt-6">
             {{ __('Setup') }} 
         </h4>
 
@@ -164,7 +164,7 @@ php artisan sail:install
                 Run the Seeder:
                 <div class="code-block">
                     <pre class="code-block-content">
-./vendor/bin/sail artisan db:seed --class=CheckoutSeeder
+./vendor/bin/sail artisan db:seed
                     </pre>
                 </div>
             </li>
@@ -205,6 +205,17 @@ depends_on:
                 </div>
             </li>
             <li class="md:text-sm text-xs">
+                Development - To start the development server:
+                <div class="code-block">
+                    <pre class="code-block-content">
+./vendor/bin/sail up -d
+
+### To compile assets:
+./vendor/bin/sail npm run dev
+                    </pre>
+                </div>
+            </li>
+            <li class="md:text-sm text-xs">
                 Running Tests
                 <div class="code-block">
                     <pre class="code-block-content">
@@ -216,63 +227,61 @@ depends_on:
                     </pre>
                 </div>
             </li>
-            <li class="md:text-sm text-xs">
-                Development - To start the development server:
-                <div class="code-block">
-                    <pre class="code-block-content">
-./vendor/bin/sail up -d
-
-### To compile assets:
-./vendor/bin/sail npm run dev
-                    </pre>
-                </div>
-            </li>
         </ol>
+
+        <h4 class="text-base font-bold dark:text-white mt-3">
+            {{ __('Main Files') }} 
+        </h4>
  
     
-        <ul>  
-          
-                <li class="mt-8">
-                    Main Files
-                </li>    
-                <li class="text-indigo-700">App\Http\Controllers</li>
-                <li class="ml-4 pb-4" title="App\Http\Controllers\CategoryController">CategoryController</li>
-                <li class="text-indigo-700">App\Repositories</li>
-                <li class="ml-4 pb-4" title="App\Repositories\CategoryRepository">CategoryRepository</li>
-                <li class="text-indigo-700">App\Helpers</li>
-                <li class="ml-4 pb-4" title="App\Helpers\BreadcrumbHelper">BreadcrumbHelper</li>
-                <li class="text-indigo-700">Resources\views\components</li>
-                <li class="ml-4 pb-4" title="Resources\views\components\breadcrumb">breadcrumb</li>
-                <li class="text-indigo-700">App\database\seeders</li>
-                <li class="ml-4 pb-4" title="App\database\seeders\DataSeeder">DataSeeder</li>
-                <li class="text-indigo-700">Tests\Browser</li>
-                <li class="ml-4 pb-4" title="Tests\Browser\CategoryTest">CategoryTest</li>
-                <li class="text-indigo-700">App\Models</li>
-                <li class="ml-4 pb-4" title=" App\Models\Category">Category</li>
-                    <ul>
-                        <li>
-                            Views
-                            <ul>
-                                <li class="ml-4">
-                                    <a href=" " class="text-green-500 hover:text-blue-500">
-                                        Index
-                                    </a>
-                                </li>
-                                <li class="ml-4">
-                                    <a href=" " class="text-green-500 hover:text-blue-500">
-                                        Breadcrumb
-                                    </a>
-                                </li>
-                                <li class="ml-4">
-                                    <a href=" " class="text-green-500 hover:text-blue-500">
-                                        Categories
-                                    </a>
-                                </li>
-                            </ul> 
-                        </li>
-                    </ul>
-                </li>
-            </ul>  
-        </div>
+        <ul class="space-y-4 text-gray-500  list-inside dark:text-gray-400">  
+            <li class="text-indigo-700 text-xs">
+                App\Http\Controllers\Category
+                <div class="ps-5">
+                    - CategoryController
+                </div>
+            </li>
+            <li class="text-indigo-700 text-xs">
+                App\Repositories
+                <div class="ps-5">
+                    - CategoryRepository
+                </div>
+            </li>
+            <li class="text-indigo-700 text-xs">
+                App\Helpers
+                <div class="ps-5">
+                    - BreadcrumbHelper
+                </div>
+            </li>
+            <li class="text-indigo-700 text-xs">
+                Resources\views\components
+                <div class="ps-5">
+                    - breadcrumb
+                </div>
+            </li>
+            <li class="text-indigo-700 text-xs">
+                Tests\Unit
+                <div class="ps-5">
+                    - CategoryTest
+                </div>
+            </li>
+            <li class="text-indigo-700 text-xs">
+                Views:
+                <div class="ps-5">
+                    - 
+                    <a href="{{ route('tasks.category.index') }}" class="text-green-500 hover:text-blue-500">
+                        Index
+                    </a><br>
+                    - 
+                    <a href="{{ route('tasks.category.breadcrumb') }}" class="text-green-500 hover:text-blue-500">
+                        Breadcrumb
+                    </a><br>
+                    - 
+                    <a href="{{ route('tasks.category.categories') }}" class="text-green-500 hover:text-blue-500">
+                        Categories
+                    </a>
+                </div>
+            </li>
+        </ul>  
     </div>
 </x-home>    

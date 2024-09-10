@@ -48,9 +48,10 @@ class CategoryController extends BaseController
 
     public function breadcrumb()
     {
+        $list = CategoryRepository::list();
         $title = $this->title;
         View::share('links', $this->links);
-        return view('tasks.category.breadcrumb', compact('title'));
+        return view('tasks.category.breadcrumb', compact('title','list'));
     }
 
     public function breadcrumbs(Request $request)
