@@ -1,6 +1,6 @@
 <x-home>
     <h2 class="font-bold lg:text-3xl text-2xl mt-4 mb-4">
-        {{ __('Total Sum')  }} 
+        {{ __('Total')  }} 
     </h2>
     <div class="mt-4 w-full text-gray-900 dark:text-white">
         <table id="items">

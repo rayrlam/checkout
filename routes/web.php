@@ -27,6 +27,11 @@ Route::middleware(['throttle:60,1'])->group(function () {
         return view('tasks.quotation.index');
     })->name('tasks.quotation.index');
 
+     // invoice
+     Route::get('/tasks/invoice/index', function () {
+        return view('tasks.invoice.index');
+    })->name('tasks.invoice.index');
+
     // category
     Route::get('/tasks/category/index', [CategoryController::class, 'index'])->name('tasks.category.index');
     Route::match(['get', 'post'], '/tasks/category/categories', [CategoryController::class,'categories'])->name('tasks.category.categories');
@@ -42,7 +47,7 @@ Route::middleware(['throttle:60,1'])->group(function () {
     // invoice
     Route::match(['get', 'post'], '/tasks/invoice/location', [FrontendController::class,'location_id'])->name('tasks.invoice.location');
     Route::match(['get', 'post'], '/tasks/invoice/headers', [FrontendController::class, 'headers'])->name('tasks.invoice.headers');
-    Route::get('/tasks/invoice/total_sum', [FrontendController::class,'total_sum'])->name('tasks.invoice.total_sum');
+    Route::get('/tasks/invoice/total', [FrontendController::class,'total'])->name('tasks.invoice.total');
 });
 
 Route::middleware(['auth', 'throttle:60,1'])->group(function () {

@@ -5,14 +5,14 @@ use Tests\TestCase;
 
 class InvoiceTest extends TestCase
 {
-    // public function test_welcome_page_can_be_rendered()
-    // {
-    //     $response = $this->get('/');
-    //     $response->assertStatus(200);
-    //     $response->assertSee('Task');
-    //     $response->assertSee('Create an Application that connects to MySQL');
-    //     $response->assertSee('Remarks');
-    // }
+    public function test_welcome_page_can_be_rendered()
+    {
+        $response = $this->get('/tasks/invoice/index');
+        $response->assertStatus(200);
+        $response->assertSee('Task');
+        $response->assertSee('Create an Application that connects to MySQL');
+        $response->assertSee('Remarks');
+    }
 
     public function test_headers_page_can_be_rendered()
     {
@@ -31,12 +31,12 @@ class InvoiceTest extends TestCase
         $response->assertSee('processed');
     }
 
-    public function test_total_sum_page_can_be_rendered()
+    public function test_total_page_can_be_rendered()
     {
-        $response = $this->get('/tasks/invoice/total_sum');
+        $response = $this->get('/tasks/invoice/total');
         $response->assertStatus(200);
-        $response->assertSee('Total Sum');
-        $response->assertSee('Total Value');
+        $response->assertSee('Total');
+        $response->assertSee('Value');
         $response->assertSee('Quantity');
     }
 

@@ -1,4 +1,4 @@
-<x-site>
+<x-home>
     <h2 class="font-bold lg:text-3xl text-2xl mt-4 mb-4">
         {{ __('Tasks') }} 
     </h2>
@@ -12,13 +12,13 @@
                 Create an API endpoint that receives: Range Date, Status and Location (The filters are not mandatory) and return invoice's header data + total value
             </li>                                   
             <li class="lg:ml-4">
-                <a class="text-green-500 hover:text-blue-500" href="{{route('location')}}">Create an API endpoint that receives: Location ID and return the value sum of the Invoices grouped by status.</a>                                    
+                <a class="text-green-500 hover:text-blue-500" href="{{route('tasks.invoice.location')}}">Create an API endpoint that receives: Location ID and return the value sum of the Invoices grouped by status.</a>                                    
             </li>
             <li class="lg:ml-4">
-                <a class="text-green-500 hover:text-blue-500" href="{{route('headers')}}">Create a simple list page to show the result of the endpoints</a>
+                <a class="text-green-500 hover:text-blue-500" href="{{route('tasks.invoice.headers')}}">Create a simple list page to show the result of the endpoints</a>
             </li>
             <li class="lg:ml-4">
-                <a class="text-green-500 hover:text-blue-500" href="{{route('total_sum')}}">Create a SQL Query to return the total value sum and the total quantity (number of invoice lines) per Invoice</a>
+                <a class="text-green-500 hover:text-blue-500" href="{{route('tasks.invoice.total')}}">Create a SQL Query to return the total value sum and the total quantity (number of invoice lines) per Invoice</a>
             </li>
         </ol>
     </div>
@@ -155,4 +155,4 @@ php artisan serve
     </ul>
 
     <!-- https://github.com/kitchencut/technical_test -->
-</x-site>
+</x-home>

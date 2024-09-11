@@ -34,9 +34,9 @@ class FrontendController extends BaseController
         return view('tasks.invoice.location', compact(['data']));
     }
 
-    public function total_sum()
+    public function total()
     {
         $data = InvoiceRepository::get_total_sum();
-        return view('tasks.invoice.total_sum', compact(['data']));
+        return view('tasks.invoice.total', compact(['data']));
     }
 }
