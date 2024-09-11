@@ -21,7 +21,7 @@ class FrontendController extends BaseController
             $arr['location'] = $request->input('location');
         }
         $data = InvoiceRepository::get_headers_data($arr);
-        return view('headers', compact(['data']));
+        return view('tasks.invoice.headers', compact(['data']));
     }
 
     public function location_id(Request $request)
@@ -31,12 +31,12 @@ class FrontendController extends BaseController
             $id = $request->input('location_id');
         }
         $data = InvoiceRepository::location_id($id);
-        return view('location', compact(['data']));
+        return view('tasks.invoice.location', compact(['data']));
     }
 
     public function total_sum()
     {
         $data = InvoiceRepository::get_total_sum();
-        return view('total_sum', compact(['data']));
+        return view('tasks.invoice.total_sum', compact(['data']));
     }
 }
