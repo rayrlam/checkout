@@ -22,25 +22,10 @@ class Navbar extends Component
     public function render(): View|Closure|string
     {
         $dropdown = [
-            'invoice' => [
-                'index' => 'tasks.invoice.index',
-                'location' => 'tasks.invoice.location',
-                'headers' => 'tasks.invoice.headers',
-                'total' => 'tasks.invoice.total',
-            ],
-            'category' => [
-                'index' => 'tasks.category.index',
-                'breadcrumb' => 'tasks.category.breadcrumb',
-                'breadcrumbs' => 'tasks.category.breadcrumbs',
-                'categories' => 'tasks.category.categories',
-            ],
-            'quotation' => 'tasks.quotation.index',
-            'checkout' => [
-                'index' => 'tasks.checkout.index',
-                'calculator' => 'tasks.checkout.calculator',
-                'register' => 'register',
-                'login' => 'login',
-            ]
+            'invoice',
+            'category',
+            'quotation',
+            'checkout',
         ];
 
         return view('components.navbar', compact('dropdown'));
