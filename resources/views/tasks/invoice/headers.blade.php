@@ -4,7 +4,7 @@
     </x-slot>
     
     <div class="block overflow-x-auto shadow-md sm:rounded-lg mt-4">
-        <h2 class="font-bold text-lg mt-4 mb-4">
+        <h2 class="font-bold text-lg mt-4 mb-4 ml-4">
             {{ __('Headers')  }}  
         </h2>
         

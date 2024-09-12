@@ -7,9 +7,9 @@ class InvoiceRepository
 {
     static public function get_headers_data(array $arr): object
     {
-        $date = isset($arr['date']) && $arr['date'] !== null ? $arr['date'] : []; 
-        $status =  isset($arr['status']) && $arr['status'] !== null ? $arr['status'] : ''; 
-        $location = isset($arr['location']) && $arr['location'] !== null ? $arr['location'] : ''; 
+        $date = $arr['date'] ?? [];
+        $status = $arr['status'] ?? '';
+        $location = $arr['location'] ?? '';
 
         $res = DB::table('invoice_headers')
                     ->join('invoice_lines', 'invoice_headers.id', '=', 'invoice_lines.invoice_header_id')

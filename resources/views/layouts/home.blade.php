@@ -21,7 +21,7 @@
             <x-sub-navbar :links="$links" />
         @endif
 
-        <main class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <main class="max-w-screen-xl flex flex-col  mx-auto p-4">
             {{ $slot }}
         </main>
 
