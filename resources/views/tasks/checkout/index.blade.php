@@ -73,7 +73,7 @@
             <h3 class="text-xl font-bold dark:text-white">
                 Notes
             </h3>
-            <ul class="space-y-4 text-gray-500  list-disc list-inside dark:text-gray-400">   
+            <ul class="space-y-2 text-gray-500  list-disc list-inside dark:text-gray-400">   
                 <li class="md:text-sm text-xs">
                     The price calculated for any quantity of an SKU with multiple special prices will be the cheapest combination of its special prices. For example: 
                     If you buy 5 ‘C’s you would get <b>2 for 38 + 3 for 50</b>. If you buy 4 ‘C’s you would get <b>3 for 50 + 1 for 20</b> rather than <b>2 for 38 + 2 for 38</b>.
@@ -90,7 +90,7 @@
                 This exercise will be used to gauge how you approach a software engineering problem - the processes you use, the quality of your code and the robustness of your solution.
             </p>
 
-            <ul class="space-y-4 text-gray-500  list-disc list-inside dark:text-gray-400">   
+            <ul class="space-y-2 text-gray-500  list-disc list-inside dark:text-gray-400">   
                 <li class="md:text-sm text-xs">
                     <b>DO</b> use as many or as few technologies and processes as you normally would when working as a Software Engineer
 

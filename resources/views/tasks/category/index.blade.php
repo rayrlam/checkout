@@ -82,7 +82,7 @@ Array(
             </pre>
         </div>
 
-<h4 class="text-xl font-bold dark:text-white mt-6">
+        <h4 class="text-xl font-bold dark:text-white mt-6">
             {{ __('Setup') }} 
         </h4>
 
