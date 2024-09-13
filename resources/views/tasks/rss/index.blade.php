@@ -1,138 +1,63 @@
 <x-home>
-    <div class="p-8 w-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-        <div class="flex" style="justify-content:space-between; align-items:baseline">
-            <div class="font-bold lg:text-3xl text-2xl mt-4 mb-4">
-                {{ __('Rss') }} 
-            </div>
-            <div class="lg:text-3xl text-2xl mt-4 mb-4">
-                <a href="{{ route('tasks.rss.rss') }}" class="text-green-500">Go to RSS</a>
-            </div>
-        </div>
+    <x-slot name="title">
+        {{ $title ?? null }}
+    </x-slot>
+    <div class="block mt-3">
+        <h3 class="text-xl font-bold dark:text-white">
+            {{ __('Rss') }} 
+        </h3>
                                 
-        <div class="text-gray-900 dark:text-white">
-            We would like you to use a suitable MVC framework to construct a simple application which will connect to an RSS feed of your choosing, pull in the feed data and store it within a MySQL database.  If you're feeling really brave you could create your own lite MVC framework and demonstrate your understanding of the concept.  The application should read the feeds from the database and output them in a suitable UI.  
-            We would also like a small native JavaScript snippet to be created which will listen out for a click on a feed, only when the Alt key is depressed and dynamically show a button to follow the feed URL and view the article online.  Clicking anywhere else other than within the focused element should subsequently hide the button again.  We don't want to see use of any JS frameworks for this one, native JS should be used only.
-        </div>
+        <p class="mb-3 text-gray-500 text-base dark:text-gray-400">
+            We would like you to use a suitable MVC framework to construct a simple application which will connect to an RSS feed of your choosing, pull in the feed data and store it within a MySQL database.  If you're feeling really brave you could create your own lite MVC framework and demonstrate your understanding of the concept.  The application should read the feeds from the database and output them in a suitable UI.              
+        </p>
 
-        <div class="mt-4  text-gray-900 dark:text-white">
+        <p class="text-gray-500 dark:text-gray-400 md:text-sm text-xs">
             We will be looking for a good understanding of OOPHP and adherence to the MVC framework as well as how data insanitized and handled from the applications side.  Efficient processing and storage of the data will also be looked at.
-        </div>
+        </p>
 
-        <div class="mt-4  text-gray-900 dark:text-white">
+        <p class="mt-3 text-gray-500 dark:text-gray-400 md:text-sm text-xs">
             <b>The task should take no longer than about 3-4 hours to complete.</b>  If not complete within that time please submit what you've managed to complete.        
-        </div>
+        </p>
 
-        <div class="mt-4  text-gray-900 dark:text-white">
+        <p class="text-gray-500 dark:text-gray-400 md:text-sm text-xs">
             We will be looking for 100% custom code for this challenge, we don't want to see any reused open source classes etc.  
             <b>It's an opportunity for you to fully demonstrate your skills in the best possible light.</b>    
-        </div>
+        </p>
 
-        <div class="mt-4  text-gray-900 dark:text-white">We look forward to reading your code.</div>
-    
-        <div class="mt-4  text-gray-900 dark:text-white">
-            Please submit to alison@reciteme.com in a format you feel most appropriate.
-        </div>
+        @include('components.setup')
 
-        <div class="mt-4">
-            <hr class="hr" />
-        </div>
-        
-        <div class="text-xl mt-4  text-gray-900 dark:text-white">
-            <h2 class="font-bold">Setup Information</h2>
-        </div>
+        <h4 class="text-base font-bold dark:text-white mt-3">
+            {{ __('Remarks') }} 
+        </h4>
 
-        <div class="mt-4  text-gray-900 dark:text-white">
-            <ul>
-                <li class="ml-4">Laravel Installation - <a href="https://laravel.com/docs/9.x/installation" target="_blank">https://laravel.com/docs/9.x/installation</a></li>
-                <li class="ml-4">Rename .env.example to .env</li>
-                <li class="ml-4">
-                    Create Database laravel
-                </li>
-                <li class="mb-4">
+        <p class="mt-3 text-gray-500 dark:text-gray-400 md:text-sm text-xs">
+            If the link of the feed page is not correct, or that is not a subscribed rss, then it will throw a 404 error. 
+            <br>You can go to the <a href="{{ route('tasks.rss.rss') }}">rss page to follow some channels and use the links from the channels to go to the feed page.      
+        </p>
 
-<pre class="rounded-lg"><code class="language-php">
-/*
-** Create by MySQL Command
-*/
+        <h4 class="text-base font-bold dark:text-white mt-3">
+            {{ __('Main Files') }} 
+        </h4>
 
-CREATE DATABASE LARAVEL;
-</code></pre>
-                </li>         
-                <li class="ml-4 mt-4">Run Laravel Command</li>
-                <li class="mt-4">       
-<pre class="rounded-lg"><code class="language-php">
-/*
-** Create all tables for this app
-*/
-
-php artisan migrate        
-</code></pre>
-                </li>
-                <li class="mt-4">       
-<pre class="rounded-lg"><code class="language-php">
-/*
-** Create the dumpy data for this app
-*/
-
-php artisan db:seed --class=DataSeeder       
-</code></pre>
-                </li>
-                <li class="mt-4">       
-<pre class="rounded-lg"><code class="language-php">
-/*
-** Run the RssTest to check for errors
-*/
-
-php artisan test       
-</code></pre>
-                </li>
-                <li class="mt-4">       
-<pre class="rounded-lg"><code class="language-php">
-/*
-** Running local server
-*/
-
-php artisan serve           
-</code></pre>
-                </li>
-            </ul>
-            <ul class="break-all">
-                <li>
-                    <hr class="hr mt-4 mb-4" />
-                </li>
-                <li style="margin-top:20px">
-                    Main Files
-                </li>    
-                <li class="text-indigo-700">App\Http\Controllers</li>
-                <li class="ml-4 pb-4">RssController</li>
-
-                <li class="text-indigo-700">App\Helpers</li>
-                <li class="ml-4 pb-4">RssHelper</li>
-
-                <li class="text-indigo-700">App\database\seeders</li>
-                <li class="ml-4 pb-4">DataSeeder</li>
-
-                <li class="text-indigo-700">Tests\Unit</li>
-                <li class="ml-4 pb-4">RssTest</li>
-
-                <li class="text-indigo-700">App\Models</li>
-                <li class="ml-4">Rss</li>
-                <li class="ml-4 pb-4">Feed</li>
-                <li class="text-indigo-700">Resources\views</li>    
-                    <ul>
-                        <li class="ml-4">
-                            <a href="{{ route('tasks.rss.index') }}" class="text-green-500 hover:text-blue-500">
-                                >> welcome.blade.php
-                            </a>
-                        </li>
-                        <li class="ml-4">
-                            <a href="{{ route('tasks.rss.rss') }}" class="text-green-500 hover:text-blue-500">
-                                >> rss.blade.php
-                            </a>
-                        </li>
-                    </ul> 
-                </li>
-            </ul>  
-        </div>
+        <ul class="space-y-4 text-gray-500  list-inside dark:text-gray-400">  
+            <li class="text-indigo-700 text-xs">
+                App\Http\Controllers\Rss
+                <div class="ps-5">
+                    - RssController
+                </div>
+            </li>
+            <li class="text-indigo-700 text-xs">
+                App\Helpers
+                <div class="ps-5">
+                    - RssHelper
+                </div>
+            </li>
+            <li class="text-indigo-700 text-xs">
+                Tests\Unit
+                <div class="ps-5">
+                    - RssTest
+                </div>
+            </li>
+        </ul>  
     </div>
 </x-home>    

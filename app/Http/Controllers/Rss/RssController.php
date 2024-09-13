@@ -17,7 +17,6 @@ class RssController extends BaseController
         $this->links =  [
             'index' => '/tasks/rss/index',
             'rss' => '/tasks/rss/rss',
-            'feed' => '/tasks/rss/feed',
         ];
     }
 
