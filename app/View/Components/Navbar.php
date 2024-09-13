@@ -26,6 +26,7 @@ class Navbar extends Component
             'category',
             'quotation',
             'checkout',
+            'rss'
         ];
 
         return view('components.navbar', compact('dropdown'));

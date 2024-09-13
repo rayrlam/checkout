@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-home>
     <link href="{{ asset('css/404.css')}}" rel="stylesheet">    
     <div class="main py-20">
         <a href="{{ route('welcome') }}"> 
@@ -46,4 +46,4 @@
             </svg>
         </a>
     </div>
-</x-app-layout>
+</x-home>

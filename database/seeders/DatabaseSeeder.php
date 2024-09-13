@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CheckoutSeeder::class,
             QuotationSeeder::class,
             InvoiceSeeder::class,
+            RssSeeder::class,
         ]);
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\Checkout\CrudController;
 use App\Http\Controllers\Checkout\CheckoutController;
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Invoice\InvoiceController;
+use App\Http\Controllers\Rss\RssController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,11 @@ Route::middleware(['throttle:60,1'])->group(function () {
     Route::match(['get', 'post'], '/tasks/invoice/location', [InvoiceController::class,'location_id'])->name('tasks.invoice.location');
     Route::match(['get', 'post'], '/tasks/invoice/headers', [InvoiceController::class, 'headers'])->name('tasks.invoice.headers');
     Route::get('/tasks/invoice/total', [InvoiceController::class,'total'])->name('tasks.invoice.total');
+
+    // rss
+    Route::get('/tasks/rss/feed/{channel}', [RssController::class, 'feed'])->name('tasks.rss.feed');
+    Route::get('/tasks/rss/index', [RssController::class, 'index'])->name('tasks.rss.index');
+    Route::match(['get','post'], '/tasks/rss/rss', [RssController::class, 'rss'])->name('tasks.rss.rss');
 });
 
 Route::middleware(['auth', 'throttle:60,1'])->group(function () {
