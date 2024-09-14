@@ -1,6 +1,6 @@
 # Laravel Testing
-![Laravel](https://img.shields.io/badge/Laravel-^11.22.0-blue)
-![PHP](https://img.shields.io/badge/PHP-^8.2.23-yellow)
+![Laravel](https://img.shields.io/badge/Laravel-^11.23.5-blue)
+![PHP](https://img.shields.io/badge/PHP-^8.3.11-yellow)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 This repository of testing playground contains multiple submodules, including this Laravel testing environment.
@@ -10,7 +10,7 @@ This repository of testing playground contains multiple submodules, including th
 - Git
 - Docker
 - Docker Compose
-- PHP 8.2 or higher
+- PHP 8.3 or higher
 - Composer
 - Node.js and npm (for React testing)
 
