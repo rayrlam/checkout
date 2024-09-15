@@ -10,6 +10,7 @@ use App\Helpers\CheckoutHelper;
 
 class CheckoutTest extends TestCase
 {
+
     public function test_welcome_page_can_be_rendered()
     {
         $response = $this->get('/');
