@@ -22,6 +22,7 @@ class RssTest extends TestCase
 
     public function test_can_follow()
     {
+        Rss::query()->update(['subscribed' => 0]);
         $response = $this->post('/tasks/rss/rss',[
             'id' => 1,
             'subscribed' => 1
@@ -37,11 +38,7 @@ class RssTest extends TestCase
 
     public function test_can_unfollow()
     {
-        $response = $this->post('/tasks/rss/rss',[
-            'id' => 2,
-            'subscribed' => 1
-        ]);
-
+        Rss::query()->update(['subscribed' => 1]);
         $response = $this->post('/tasks/rss/rss',[
             'id' => 2,
             'subscribed' => 0
@@ -55,18 +52,17 @@ class RssTest extends TestCase
     }
 
     public function test_subscribed_count_equals_3(){
+        Rss::query()->update(['subscribed' => 0]);
 
-        
-
-        $response = $this->post('/tasks/rss/rss',[
+        $this->post('/tasks/rss/rss',[
             'id' => 1,
             'subscribed' => 1
         ]);
-        $response = $this->post('/tasks/rss/rss',[
+        $this->post('/tasks/rss/rss',[
             'id' => 3,
             'subscribed' => 1
         ]);
-        $response = $this->post('/tasks/rss/rss',[
+        $this->post('/tasks/rss/rss',[
             'id' => 5,
             'subscribed' => 1
         ]);
