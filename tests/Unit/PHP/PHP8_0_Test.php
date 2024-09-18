@@ -4,29 +4,30 @@ namespace Tests\Unit\PHP;
 
 use PHPUnit\Framework\TestCase;
 use TypeError;
+use Tests\Unit\PHP\MyClass;
 
 class PHP80FeaturesTest extends TestCase
 {
-    public function testNamedArguments()
+    public function test_named_arguments()
     {
-        $this->assertEquals('Hello, World!', $this->greet(name: 'World'));
+        $this->assertEquals('Hello, World!',  (new MyClass())->greet(name: 'World'));
     }
 
     public function test_union_types()
     {
-        $this->assertIsString($this->processInput('test'));
-        $this->assertIsInt($this->processInput(42));
+        $this->assertIsString( (new MyClass())->processInput('test'));
+        $this->assertIsInt( (new MyClass())->processInput(42));
         $this->expectException(TypeError::class);
         // Should throw TypeError
-        $this->processInput([]); 
+        (new MyClass())->processInput([]); 
     }
 
     public function testMatchExpression()
     {
-        $this->assertEquals('one', $this->numberToWord(1));
-        $this->assertEquals('two', $this->numberToWord(2));
-        $this->assertEquals('three four five', $this->numberToWord(3));
-        $this->assertEquals('any', $this->numberToWord(10));
+        $this->assertEquals('one', (new MyClass())->numberToWord(1));
+        $this->assertEquals('two', (new MyClass())->numberToWord(2));
+        $this->assertEquals('three four five', (new MyClass())->numberToWord(3));
+        $this->assertEquals('any', (new MyClass())->numberToWord(10));
     }
 
     public function test_null_safe_operator()
@@ -52,23 +53,5 @@ class PHP80FeaturesTest extends TestCase
         $this->assertEquals(30, $person->age);
     }
 
-    private function greet(string $name): string
-    {
-        return "Hello, $name!";
-    }
-
-    private function processInput(string|int $input): string|int
-    {
-        return $input;
-    }
-
-    private function numberToWord(int $number): string
-    {
-        return match ($number) {
-            1 => 'one',
-            2 => 'two',
-            3, 4, 5 => 'three four five',
-            default => 'any',
-        };
-    }
+    
 }
