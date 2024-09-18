@@ -2,7 +2,6 @@
 
 namespace Tests\Unit\PHP;
 
-use Illuminate\Support\Stringable;
 use PHPUnit\Framework\TestCase;
 use TypeError;
 
