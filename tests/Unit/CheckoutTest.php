@@ -4,12 +4,14 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Models\User;
-use App\Models\Checkout\Item;
-use App\Models\Checkout\Rule;
+// use App\Models\Checkout\Item;
+// use App\Models\Checkout\Rule;
 use App\Helpers\CheckoutHelper;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class CheckoutTest extends TestCase
 {
+    use DatabaseTransactions;
 
     public function test_welcome_page_can_be_rendered()
     {

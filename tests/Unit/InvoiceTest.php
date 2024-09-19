@@ -2,9 +2,12 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class InvoiceTest extends TestCase
 {
+    use DatabaseTransactions;
+    
     public function test_welcome_page_can_be_rendered()
     {
         $response = $this->get('/tasks/invoice/index');

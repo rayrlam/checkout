@@ -3,6 +3,7 @@
 namespace Tests\Unit\PHP;
 
 use PHPUnit\Framework\TestCase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 enum Status
 {
@@ -13,6 +14,8 @@ enum Status
  
 class PHP8_1_Test extends TestCase
 {
+    use DatabaseTransactions;
+    
     public function test_enum()
     {
         $status = Status::PUBLISHED;

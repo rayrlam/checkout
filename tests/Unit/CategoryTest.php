@@ -4,9 +4,12 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use App\Helpers\CategoryHelper;
 use App\Repositories\CategoryRepository;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class CategoryTest extends TestCase
 {   
+    use DatabaseTransactions;
+    
     public function test_welcome_page_can_be_rendered()
     {
         $response = $this->get('/tasks/category/index');

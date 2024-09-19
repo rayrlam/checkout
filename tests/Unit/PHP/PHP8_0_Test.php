@@ -3,11 +3,14 @@
 namespace Tests\Unit\PHP;
 
 use PHPUnit\Framework\TestCase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use TypeError;
 use Tests\Unit\PHP\MyClass;
 
 class PHP80FeaturesTest extends TestCase
 {
+    use DatabaseTransactions;
+
     public function test_named_arguments()
     {
         $this->assertEquals('Hello, World!',  (new MyClass())->greet(name: 'World'));

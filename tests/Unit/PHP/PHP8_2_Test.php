@@ -4,9 +4,12 @@ namespace Tests\Unit\PHP;
 
 use PHPUnit\Framework\TestCase;
 use Tests\Unit\PHP\MyClass;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class PHP8_2_Test extends TestCase
 {
+    use DatabaseTransactions;
+
     public function test_typed_constants()
     {
         $this->assertEquals(3.14159, MyClass::PI);

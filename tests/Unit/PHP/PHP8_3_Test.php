@@ -3,11 +3,14 @@
 namespace Tests\Unit\PHP;
 
 use PHPUnit\Framework\TestCase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\Unit\PHP\ChildClass;
 use Random\Randomizer;
 
 class PHP8_3_Test extends TestCase
 {
+    use DatabaseTransactions;
+    
     public function test_json_validate()
     {
         $this->assertTrue(json_validate('{"name": "Peter", "age": 18}'));

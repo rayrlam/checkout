@@ -3,9 +3,12 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Helpers\QuoteHelper;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class QuotationTest extends TestCase
 {
+    use DatabaseTransactions;
+
     public function test_rating_factor_equal_627()
     {
         $payload = [
