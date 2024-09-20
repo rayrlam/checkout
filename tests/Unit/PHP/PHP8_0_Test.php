@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use TypeError;
 use Tests\Unit\PHP\MyClass;
 
-class PHP80FeaturesTest extends TestCase
+class PHP8_0_Test extends TestCase
 {
     use DatabaseTransactions;
 
