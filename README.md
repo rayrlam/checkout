@@ -63,9 +63,9 @@ This repository serves as a comprehensive collection of Laravel testing techniqu
     ```
 ## Install dependencies:
 
-    ```
-    composer install
-    ```
+```
+composer install
+```
 - Start the Docker environment:
     ```
     ./vendor/bin/sail up -d
