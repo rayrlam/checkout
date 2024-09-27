@@ -13,6 +13,7 @@ This repository serves as a comprehensive collection of Laravel testing techniqu
 3. **Browser Tests**: Includes Laravel Dusk examples for frontend and JavaScript testing.
 4. **Database Testing**: Covers strategies for testing database interactions and migrations.
 5. **Test-Driven Development (TDD) Examples**: Shows the TDD approach in action with Laravel.
+6. **Test Doubles and Mocking**: Illustrates the use of mock objects and test doubles for isolating dependencies in unit tests.
 
 ### Structure:
 
