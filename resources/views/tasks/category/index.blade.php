@@ -87,7 +87,6 @@ Array(
         <h4 class="text-base font-bold dark:text-white mt-3">
             {{ __('Main Files') }} 
         </h4>
- 
     
         <ul class="space-y-4 text-gray-500  list-inside dark:text-gray-400">  
             <li class="text-indigo-700 text-xs">
