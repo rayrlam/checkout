@@ -92,10 +92,6 @@ composer install
     ```
 - Access the Laravel application at `http://127.0.0.1/`
 
-### Contributing:
-
-We welcome contributions! If you have additional test examples, improvements, or bug fixes, please feel free to submit a pull request.
-
 ### License:
 
 This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
