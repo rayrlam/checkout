@@ -1,11 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Checkout\CrudController;
-use App\Http\Controllers\Checkout\CheckoutController;
 use App\Http\Controllers\Category\CategoryController;
+use App\Http\Controllers\Checkout\CheckoutController;
+use App\Http\Controllers\Checkout\CrudController;
+use App\Http\Controllers\Cqrs\CqrsController;
+use App\Http\Controllers\Cqrs\ProductController;
 use App\Http\Controllers\Invoice\InvoiceController;
 use App\Http\Controllers\Rss\RssController;
+use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +53,12 @@ Route::middleware(['throttle:60,1'])->group(function () {
     Route::get('/tasks/rss/feed/{channel}', [RssController::class, 'feed'])->name('tasks.rss.feed');
     Route::get('/tasks/rss/index', [RssController::class, 'index'])->name('tasks.rss.index');
     Route::match(['get','post'], '/tasks/rss/rss', [RssController::class, 'rss'])->name('tasks.rss.rss');
+
+    // cqrs
+    Route::get('/tasks/cqrs/index', [CqrsController::class, 'index'])->name('tasks.cqrs.index');
+    Route::get('/tasks/cqrs/list', [CqrsController::class, 'list'])->name('tasks.cqrs.list');
+    Route::get('/tasks/cqrs/show/{id}', [ProductController::class, 'show'])->name('tasks.cqrs.show');
+    Route::post('/tasks/cqrs/store', [ProductController::class, 'cal'])->name('tasks.cqrs.cal');
 });
 
 Route::middleware(['auth', 'throttle:60,1'])->group(function () {

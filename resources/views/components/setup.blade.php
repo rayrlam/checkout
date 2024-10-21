@@ -29,7 +29,7 @@
             <span>
         </a>
         <div class="code-block mt-3">
-            <pre class="code-block-content">
+            <pre class="code-block-content pl-3">
 cd checkout
             </pre>
         </div>
@@ -37,7 +37,7 @@ cd checkout
     <li class="md:text-sm text-xs">
         Copy the example environment file:
         <div class="code-block">
-            <pre class="code-block-content">
+            <pre class="code-block-content pl-3">
 cp .env.example .env
             </pre>
         </div>
@@ -45,17 +45,16 @@ cp .env.example .env
     <li class="md:text-sm text-xs">
         Install Composer dependencies using Laravel Sail:
             <div class="code-block">
-            <pre class="code-block-content">
+            <pre class="code-block-content pl-3">
 composer require laravel/sail --dev
 php artisan sail:install
-
             </pre>
         </div>
     </li>
     <li class="md:text-sm text-xs">
         Start the Docker containers:
         <div class="code-block">
-            <pre class="code-block-content">
+            <pre class="code-block-content pl-3">
 ./vendor/bin/sail up -d
             </pre>
         </div>
@@ -63,7 +62,7 @@ php artisan sail:install
     <li class="md:text-sm text-xs">
         Generate application key:
         <div class="code-block">
-            <pre class="code-block-content">
+            <pre class="code-block-content pl-3">
 ./vendor/bin/sail artisan key:generate
             </pre>
         </div>
@@ -71,7 +70,7 @@ php artisan sail:install
     <li class="md:text-sm text-xs">
         Run database migrations:
         <div class="code-block">
-            <pre class="code-block-content">
+            <pre class="code-block-content pl-3">
 ./vendor/bin/sail artisan migrate
             </pre>
         </div>
@@ -79,7 +78,7 @@ php artisan sail:install
     <li class="md:text-sm text-xs">
         Run the Seeder:
         <div class="code-block">
-            <pre class="code-block-content">
+            <pre class="code-block-content pl-3">
 ./vendor/bin/sail artisan db:seed
             </pre>
         </div>
@@ -87,7 +86,7 @@ php artisan sail:install
     <li class="md:text-sm text-xs">
         Install NPM dependencies and build assets:
         <div class="code-block">
-            <pre class="code-block-content">
+            <pre class="code-block-content pl-3">
 ./vendor/bin/sail npm install
 ./vendor/bin/sail npm run dev
             </pre>
@@ -96,7 +95,7 @@ php artisan sail:install
     <li class="md:text-sm text-xs">
         Set up Laravel Dusk:
         <div class="code-block">
-            <pre class="code-block-content">
+            <pre class="code-block-content pl-3">
 composer require laravel/dusk --dev
 ./vendor/bin/sail artisan dusk:install
 ./vendor/bin/sail dusk:chrome-driver
@@ -123,7 +122,7 @@ depends_on:
     <li class="md:text-sm text-xs">
         Development - To start the development server:
         <div class="code-block">
-            <pre class="code-block-content">
+            <pre class="code-block-content pl-3">
 ./vendor/bin/sail up -d
 
 ### To compile assets:
@@ -134,7 +133,7 @@ depends_on:
     <li class="md:text-sm text-xs">
         Running Tests
         <div class="code-block">
-            <pre class="code-block-content">
+            <pre class="code-block-content pl-3">
 ### PHPUnit - Run PHPUnit tests with:
 ./vendor/bin/sail test
 
@@ -147,7 +146,7 @@ depends_on:
         <li class="md:text-sm text-xs">
             User Account Setup:
             <div class="code-block">
-                <pre class="code-block-content">
+                <pre class="code-block-content pl-3">
 ### The DataSeeder has created a default user account. You can use these credentials to log in:
 # Email: johndoe@example.com
 # Password: 12345678

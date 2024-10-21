@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             QuotationSeeder::class,
             InvoiceSeeder::class,
             RssSeeder::class,
+            CqrsProductSeeder::class,
         ]);
     }
 }
