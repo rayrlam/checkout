@@ -80,6 +80,10 @@ composer install
     ./vendor/bin/sail artisan migrate
     ./vendor/bin/sail artisan db:seed
     ```
+- Run npm:
+    ```
+    npm run dev
+    ```   
 ### Testing
 
 - Laravel Dusk
@@ -89,7 +93,7 @@ composer install
 - PHPUnit
     ```
     ./vendor/bin/sail test
-    ```
+    ``` 
 - Access the Laravel application at `http://127.0.0.1/`
 
 ### License:
