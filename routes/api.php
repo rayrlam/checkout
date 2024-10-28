@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Entry\Api\V1\EntryV1Controller;
+use App\Http\Controllers\Invoice\Api\V1\InvoiceV1Controller;
+use App\Http\Controllers\Quotation\Api\V1\QuoteV1Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Quotation\Api\V1\QuoteV1Controller;
-use App\Http\Controllers\Invoice\Api\V1\InvoiceV1Controller;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix'=>'v1'], function(){
+    // entry
+    Route::post('/checking', [EntryV1Controller::class, 'checking']);
+
     // quotation
     Route::post('/quoting', [QuoteV1Controller::class, 'quoting']);
 

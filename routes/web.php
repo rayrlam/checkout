@@ -26,6 +26,11 @@ Route::middleware(['throttle:60,1'])->group(function () {
         return view('welcome');
     })->name('welcome');
 
+    // entry
+    Route::get('/tasks/entry/index', function () {
+        return view('tasks.entry.index');
+    })->name('tasks.entry.index');
+
     // quotation
     Route::get('/tasks/quotation/index', function () {
         return view('tasks.quotation.index');
