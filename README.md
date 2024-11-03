@@ -2,7 +2,8 @@
 
 ![Laravel](https://img.shields.io/badge/Laravel-^11.29.0-blue)
 ![PHP](https://img.shields.io/badge/PHP-^8.3.11-yellow)
-![License](https://img.shields.io/badge/license-MIT-green)
+![PHPUnit](https://img.shields.io/badge/PHPUnit-^10.5.36-purple)
+![Dusk](https://img.shields.io/badge/Dusk-^8.2.10-green)
 
 This repository serves as a comprehensive collection of Laravel testing techniques and best practices, compiled from various technical tests and real-world scenarios encountered since 2022. It aims to provide developers with practical examples and insights into effective testing strategies for Laravel applications.
 
