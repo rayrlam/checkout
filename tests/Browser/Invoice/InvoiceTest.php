@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Browser\Checkout;
+namespace Tests\Browser\Invoice;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
