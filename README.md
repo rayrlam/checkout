@@ -1,7 +1,7 @@
 # Laravel Testing: A Collection of Technical Tests (2022-Present)
 
 ![Laravel](https://img.shields.io/badge/Laravel-^11.36.1-blue)
-![PHP](https://img.shields.io/badge/PHP-^8.3.11-yellow)
+![PHP](https://img.shields.io/badge/PHP-^8.4.2-yellow)
 ![PHPUnit](https://img.shields.io/badge/PHPUnit-^10.5.36-purple)
 ![Dusk](https://img.shields.io/badge/Dusk-^8.2.10-green)
 

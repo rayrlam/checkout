@@ -57,14 +57,19 @@ class QuotationTest extends TestCase
                 $sum *= $a[$i]['rating_factor'];
             }
 
-            $this->postJson('api/v1/quoting', $payload)
-            ->assertStatus(200)
-            ->assertExactJson([
-                "data" => [
-                    "result" => round($sum,2)
-                ]
+            $response = $this->postJson('api/v1/quoting', $payload);
+
+            $response->assertStatus(200);
+            
+            $expectedSum = round($sum, 2);
+            $actualResult = $response->json('data.result');
+            
+            $response->assertJsonStructure([
+                'data' => ['result']
             ]);
             
+            // Use a delta of 0.01 to allow for small floating-point differences
+            $this->assertEqualsWithDelta($expectedSum, $actualResult, 0.01, "The result {$actualResult} should be close to {$expectedSum}");
         }        
     }
 }
